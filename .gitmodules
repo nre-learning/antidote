@@ -1,0 +1,12 @@
+[submodule "syringe"]
+	path = syringe
+	url = https://github.com/nre-learning/syringe
+[submodule "antidote-web"]
+	path = antidote-web
+	url = https://github.com/nre-learning/antidote-web
+[submodule "antidote-ops"]
+	path = antidote-ops
+	url = https://github.com/nre-learning/antidote-ops
+[submodule "nrelabs-curriculum"]
+	path = nrelabs-curriculum
+	url = https://github.com/nre-learning/nrelabs-curriculum
