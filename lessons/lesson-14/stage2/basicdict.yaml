@@ -1,5 +1,0 @@
----
-hostname: sw01
-family: QFX
-osversion: 15.1X53-D60.4
-snmpcommunity: $uper$3cret
