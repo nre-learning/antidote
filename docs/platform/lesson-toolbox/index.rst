@@ -21,7 +21,9 @@ to really make your content stand out.
    :maxdepth: 1
 
    endpoints.rst
+   connections.rst
    images.rst
    guides.rst
+   autoconfiguration.rst
    iframe.rst
    verification.rst
