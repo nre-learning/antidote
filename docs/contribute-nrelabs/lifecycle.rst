@@ -88,11 +88,16 @@ iterate on the changes you've made. Ironing out all of the bugs locally before y
 request makes the review process much smoother. For more info, see the
 :ref:`local build <buildlocal>` documentation.
 
-Next thing you'll want to bookmark is the documentation on :ref:`lesson definitions <lessondef>`.
-All lessons are defined "as-code", meaning they are all defined using simple text files stored in Git.
+Next thing you'll want to bookmark is the documentation on :ref:`curriculum definitions <curricula>`.
+All curriculum resources, such as lessons,  are defined "as-code", meaning they are all defined using simple text files stored in Git.
 This documentation is vital for knowing what kind of things you can use to create an awesome lesson,
 so read that carefully, and follow the instructions there, whether you're creating a new lesson, or
 modifying an existing one.
+
+Finally, you'll definitely want to download :ref:`syrctl <syrctl>`, the command-line tool that will
+serve as your best friend when contributing to the NRE Labs curriculum. With this tool, you can easily
+create a new lesson skeleton, or validate existing lesson content, so you don't have to wonder if you've built
+a lesson correctly.
 
 At this point, you're ready to make the changes to your copy of the NRE Labs curriculum. Make commits, and
 push them to your fork as you see fit. Try to keep commit messages relevant and descriptive.

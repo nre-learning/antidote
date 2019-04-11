@@ -9,8 +9,8 @@ Antidote has multiple layers that build up a cluster, and multiple tools that ru
 
 Starting from the top down:
 
-Curriculum
-^^^^^^^^^^
+Curriculum Layer
+^^^^^^^^^^^^^^^^
 
 All of the lessons and labs are defined as a standalone curriculum. The platform underneath is built to
 treat this as a modular component. For instance, the :ref:`NRE Labs curriculum <contrib-curriculum>` is certainly the most
@@ -18,8 +18,8 @@ popular curriculum currently available, and it's what we are serving via the `NR
 site, but no aspect of this curriculum is baked into the Antidote platform. Other curricula can be developed and run within the antidote
 platform.
 
-Platform
-^^^^^^^^
+Platform Layer
+^^^^^^^^^^^^^^
 
 This is where the custom software components of Antidote live. In particular, `Syringe <https://github.com/nre-learning/syringe>`_
 provides an upstream API for provisioning lesson resources, then makes the relevant calls to Kubernetes to make sure the relevant,
@@ -27,8 +27,8 @@ specific compute resources and policies are instantiated. `Antidote-web <https:/
 consumes the API offered by Syringe and is responsible for providing a fully web-based experience for interacting with lesson resources.
 
 
-Infrastructure
-^^^^^^^^^^^^^^
+Infrastructure Layer
+^^^^^^^^^^^^^^^^^^^^
 
 The :ref:`NRE Labs <contrib-curriculum>` instance of Antidote leverages Google Compute Platform (specifically GCE virtual machines)
 due to the availability of hardware-assisted virtualization capabilities, which allows us to run virtual network
@@ -45,7 +45,7 @@ contains the Terraform and Ansible scripts we use to run Antidote in GCP to powe
 Why not Hosted Kubernetes?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-There are two main constraints we need to solv before moving into something like GKE:
+There are two main constraints we need to solve before moving into something like GKE:
 
 - We need to be able to preserve the HW virtualization capabilities. It's possible to set this flag on the hosts
   used for GKE, but it's not clear how well-supported this is. This warrants further exploration.
@@ -71,7 +71,7 @@ for how things currently work is as follows:
   `Multus <https://github.com/intel/multus-cni>`_, we can provision multiple networks for a pod.
 * When we schedule lesson resources, we use affinity rules to ensure all of a lessons' resources are scheduled
   onto the same host.
-* Depending on the resource type, and the connections described in the :ref:`lesson definition <syringefile>`,
+* Depending on the resource type, and the connections described in the :ref:`lesson definition <lessons>`,
   we may also connect additional interfaces to a pod, connected to other networks.
 * Since all pods are on the same host, if we need to connect pods together directly, such as in a specified
   network topology, we can simply create a linux bridge and add the relevant interfaces. In the future, we will do away

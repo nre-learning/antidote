@@ -12,7 +12,7 @@ educational content.
    :maxdepth: 1
 
    architecture.rst
-   lesson-toolbox/index.rst
-   syringe/syringe.rst
-   antidote-web/antidote-web.rst
+   curricula/index.rst
+   syringe/index.rst
+   antidote-web/index.rst
 

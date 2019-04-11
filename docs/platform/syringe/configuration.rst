@@ -1,3 +1,5 @@
+.. _syringe-config:
+
 Configuring Syringe
 ================================
 

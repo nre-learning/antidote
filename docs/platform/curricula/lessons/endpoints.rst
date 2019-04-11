@@ -14,7 +14,7 @@ type, is crucial to being able to
 .. WARNING::
 
     While these endpoint types are mostly thought to be fairly stable, how they're configured within a lesson
-    definition is subject to change. Please revisit this page, and the :ref:`lesson definition <lessondef>`
+    definition is subject to change. Please revisit this page, and the :ref:`lesson definition <lessons>`
     page for the most up-to-date information possible.
 
 The concept of an "Endpoint" is an abstraction within the Antidote infrastructure, but the actual runtime
@@ -23,7 +23,7 @@ API for instantiating containers. Endpoints are really just containers being exe
 in various ways. As a result, you'll often see the ``image`` field in an endpoint definition. This is
 literally a docker image, such as a full docker hub repository, like ``antidotelabs/vqfx``.
 
-Generally, endpoints are configured within the main :ref:`lesson definition <lessondef>` file, ``syringe.yaml``,
+Generally, endpoints are configured within the main :ref:`lesson definition <lessons>` file, ``syringe.yaml``,
 which can be found at the root of any lesson directory. Declaring these endpoints in a lesson definition is
 usually very simple - often only a name and a reference to the docker hub image is needed. However,
 the way that Syringe will handle the endpoint will differ greatly between the various endpoint types.
@@ -45,7 +45,7 @@ The ``utility`` is the simplest way to present something to the user in Antidote
 of this type will be presented in the web front-end as a terminal tab. As a result, the endpoint
 must be accessible via SSH. See the table below for details.
 
-A sample configuration (found in a :ref:`lesson definition <lessondef>`) is below:
+A sample configuration (found in a :ref:`lesson definition <lessons>`) is below:
 
 .. CODE:: yaml
 
@@ -74,7 +74,7 @@ very similar to the ``utility`` type, with one major difference - how it's autom
 configured (see table below). It also requires SSH connectivity and has the same default port
 configuration as a ``utility``. It is also represented as a terminal tab in the web UI.
 
-A sample configuration (found in a :ref:`lesson definition <lessondef>`) is below:
+A sample configuration (found in a :ref:`lesson definition <lessons>`) is below:
 
 .. CODE:: yaml
 
@@ -115,7 +115,7 @@ lesson environment like any other endpoint, but no presentation to the learner i
 Since it's not clear how you might want to access this endpoint, no default ports are provided, and
 healthchecks are TCP-based, instead of full SSH-authentication checks (see table below).
 
-A sample configuration (found in a :ref:`lesson definition <lessondef>`) is below. In this example,
+A sample configuration (found in a :ref:`lesson definition <lessons>`) is below. In this example,
 a ``blackbox`` endpoint that runs an IP PBX is configured alongside a ``utility`` image that runs
 a soft phone client that the learner uses to register to the PBX:
 
@@ -130,13 +130,13 @@ a soft phone client that the learner uses to register to the PBX:
   - name: sipphone
     image: antidotelabs/pjsua-lindsey
 
-+----------------------+---------------------------------------------------+
-|  Endpoint Attribute  |            Detail                                 |
-+======================+===================================================+
-| Health Check         |  Basic TCP probes based on defined open ports     |
-+----------------------+---------------------------------------------------+
-| Autoconfiguration    |  No autoconfiguration.                            |
-+----------------------+---------------------------------------------------+
-| Default Ports        |  No default ports. Lesson authors must specify    |
-|                      |  a list of ports to open.                         |
-+----------------------+---------------------------------------------------+
++----------------------+-----------------------------------------------------+
+|  Endpoint Attribute  |            Detail                                   |
++======================+=====================================================+
+| Health Check         |  Basic TCP probes based on defined open ports       |
++----------------------+-----------------------------------------------------+
+| Autoconfiguration    |  No autoconfiguration.                              |
++----------------------+-----------------------------------------------------+
+| Default Ports        |  No default ports. Lesson authors must explicitly   |
+|                      |  specify a list of ports to open. See example above |
++----------------------+-----------------------------------------------------+ 
