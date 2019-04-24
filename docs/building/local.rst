@@ -56,9 +56,13 @@ Starting the Environment
 ------------------------
 
 All of the scripts and kubernetes manifests for running Antidote within minikube are located in the
-`antidote-selfmedicate <https://github.com/nre-learning/antidote-selfmedicate>`_ repository. Clone and enter this repository::
+`antidote-selfmedicate <https://github.com/nre-learning/antidote-selfmedicate>`_ repository.Clone and enter this repository::
 
     git clone https://github.com/nre-learning/antidote-selfmedicate && cd antidote-selfmedicate/
+
+**Please remember** that changes are being made to this repository all the time. If you encounter issues, the
+very first thing you should try before you open an issue is to make sure you have the latest copy of this
+repository by doing a ``git pull`` on the master branch.
 
 .. note::  By default, the selfmedicate script will look at the relative path ``../antidote`` for
            your lesson directory, and automatically share those files to the development environment.
@@ -66,8 +70,8 @@ All of the scripts and kubernetes manifests for running Antidote within minikube
            ``LESSON_DIRECTORY`` variable at the top of ``selfmedicate.sh``.
 
 Within this repo, the ``selfmedicate.sh`` script is our one-stop shop for managing the development environment. This script
-interacts with minikube for us, so we don't have to. Only in rare circumstances, such as troubleshooting problems, should
-you have to interact directly with minikube. This script has several subcommands:
+interacts with minikube for us, so we don't have to. Only in rare circumstances, such as troubleshooting
+problems, should you have to interact directly with minikube. This script has several subcommands:
 
 .. CODE::
 
@@ -88,18 +92,19 @@ To initially start the selfmedicate environment, use the ``start`` subcommand, l
 
     ./selfmedicate.sh start
 
-The output of this script should be fairly descriptive, but a high-level overview of the four tasks accomplished
-by the ``selfmedicate`` script in this stage is as follows:
+The output of this script should be fairly descriptive, but a high-level overview of the four tasks
+accomplished by the ``selfmedicate`` script in this stage is as follows:
 
 1. ``minikube`` is instructed to start a Kubernetes cluster with a variety of optional arguments that
    are necessary to properly run the Antidote platform
 2. Once a basic Kubernetes cluster is online, some additional infrastructure elements are installed. These
    include things like Multus and Weave, to enable the advanced networking needed by lessons.
 3. Platform elements like ``syringe`` and ``antidote-web`` are installed onto the minikube instance.
-4. Common and large images, like the ``vqfx`` and ``utility`` images are pre-emptively downloaded to the minikube
-   instance, so that you don't have to wait for these to download when you try to spin up a lesson.
+4. Common and large images, like the ``vqfx`` and ``utility`` images are pre-emptively downloaded to the
+   minikube instance, so that you don't have to wait for these to download when you try to spin up a lesson.
 5. Once all the above is done, the script will ask for your sudo password so it can automatically add an entry
-   to ``/etc/hosts`` for you. Once this is done, you should be able to access the environment at the URL shown.
+   to ``/etc/hosts`` for you. Once this is done, you should be able to access the environment at the URL
+   shown.
 
 .. WARNING::
 
@@ -247,12 +252,63 @@ to manually pull an image ahead of time, you could run ``minikube ssh docker ima
 Validating Lesson Content
 -------------------------
 
-Syringe, the back-end orchestrator of the Antidote platform, comes with a command-line utility called ``syrctl``. One of the things
-``syrctl`` can do for us is validate lesson content to make sure it has all of the basics to work properly. To run this command,
-you can compile the syrctl binary yourself from the Syringe repo, or you can execute the pre-built docker container:
+Syringe, the back-end orchestrator of the Antidote platform, comes with a command-line utility called ``syrctl``. You can download ``syrctl``
+using :ref:`the instructions here <download-syrctl>`.
+
+One of the things ``syrctl`` can do for us is validate lesson content to make sure it has all of the basics to work properly. This is done via the subcommand
+``syrctl validate``. This command is directed at a curriculum directory in order to work: for instance, we have the NRE Labs curriculum installed locally:
 
 .. code::
 
-    docker run -v .:/antidote antidotelabs/syringe syrctl validate
+    ~$ ls -lha
+    total 68K
+    drwxr-xr-x  6 mierdin mierdin 4.0K Apr 21 22:52 .
+    drwxr-xr-x 10 mierdin mierdin 4.0K Apr 15 23:19 ..
+    drwxrwxr-x  3 mierdin mierdin 4.0K Apr 17 17:39 collections
+    drwxr-xr-x  8 mierdin mierdin 4.0K Apr 23 21:27 .git
+    drwxr-xr-x 18 mierdin mierdin 4.0K Apr  6 12:49 images
+    drwxr-xr-x  5 mierdin mierdin 4.0K Apr 21 22:52 lessons
+    -rw-r--r--  1 mierdin mierdin 5.2K Apr 21 22:54 CHANGELOG.md
+    -rwxr-xr-x  1 mierdin mierdin  500 Apr 15 15:19 check-changelog.sh
+    -rw-rw-r--  1 mierdin mierdin    0 Apr 21 13:04 curriculum.meta.yaml
+    -rw-r--r--  1 mierdin mierdin   33 Apr  6 12:49 .dockerignore
+    -rw-r--r--  1 mierdin mierdin  573 Apr  6 12:49 .gitignore
+    -rw-r--r--  1 mierdin mierdin  12K Apr  6 12:49 LICENSE
+    -rw-r--r--  1 mierdin mierdin 1.1K Apr 15 18:56 README.md
+    -rw-r--r--  1 mierdin mierdin  288 Apr  6 12:49 .travis.yml
+    -rwxr-xr-x  1 mierdin mierdin  288 Apr 15 15:19 validate-lessons.share
 
-In the very near future, ``syrctl`` will be added to the CI pipeline for Antidote so that you know in your PR if there's any issues.
+We're already `cd`'d into this directory, so we just need to run ``syrctl validate .`` to instruct syrctl to validate the local directory:
+
+.. code::
+
+    ~$ syrctl validate .
+    INFO[0000] Successfully imported lesson 14: Introduction to YAML --- BLACKBOX: 0, IFR: 0, UTILITY: 1, DEVICE: 0, CONNECTIONS: 0 
+    INFO[0000] Successfully imported lesson 16: Using Jinja for Configuration Templates --- BLACKBOX: 0, IFR: 0, UTILITY: 1, DEVICE: 0, CONNECTIONS: 0 
+    INFO[0000] Successfully imported lesson 17: Version Control with Git --- BLACKBOX: 0, IFR: 0, UTILITY: 1, DEVICE: 0, CONNECTIONS: 0 
+    INFO[0000] Successfully imported lesson 19: Working with REST APIs --- BLACKBOX: 0, IFR: 0, UTILITY: 1, DEVICE: 3, CONNECTIONS: 4 
+    INFO[0000] Successfully imported lesson 22: Introduction to Python --- BLACKBOX: 0, IFR: 0, UTILITY: 1, DEVICE: 0, CONNECTIONS: 0 
+    INFO[0000] Successfully imported lesson 23: Linux Basics --- BLACKBOX: 0, IFR: 0, UTILITY: 1, DEVICE: 0, CONNECTIONS: 0 
+    INFO[0000] Successfully imported lesson 12: Network Unit Testing with JSNAPY --- BLACKBOX: 0, IFR: 0, UTILITY: 1, DEVICE: 3, CONNECTIONS: 3 
+    INFO[0000] Successfully imported lesson 13: Multi-Vendor Network Automation with NAPALM --- BLACKBOX: 0, IFR: 0, UTILITY: 1, DEVICE: 1, CONNECTIONS: 0 
+    INFO[0000] Successfully imported lesson 15: Event-Driven Network Automation with StackStorm --- BLACKBOX: 0, IFR: 0, UTILITY: 1, DEVICE: 3, CONNECTIONS: 3 
+    INFO[0000] Successfully imported lesson 18: End-to-End Network Testing with ToDD --- BLACKBOX: 0, IFR: 0, UTILITY: 2, DEVICE: 1, CONNECTIONS: 2 
+    INFO[0000] Successfully imported lesson 24: Junos Automation with PyEZ --- BLACKBOX: 0, IFR: 0, UTILITY: 1, DEVICE: 1, CONNECTIONS: 1 
+    INFO[0000] Successfully imported lesson 25: Juniper Extension Toolkit (JET) --- BLACKBOX: 0, IFR: 0, UTILITY: 1, DEVICE: 1, CONNECTIONS: 1 
+    INFO[0000] Successfully imported lesson 26: Vendor-Neutral Network Configuration with OpenConfig --- BLACKBOX: 0, IFR: 0, UTILITY: 1, DEVICE: 1, CONNECTIONS: 1 
+    INFO[0000] Successfully imported lesson 29: Using Robot Framework for Automated Testing --- BLACKBOX: 0, IFR: 0, UTILITY: 1, DEVICE: 1, CONNECTIONS: 1 
+    INFO[0000] Successfully imported lesson 30: Network Automation with Salt --- BLACKBOX: 0, IFR: 0, UTILITY: 1, DEVICE: 1, CONNECTIONS: 1 
+    INFO[0000] Successfully imported lesson 31: Terraform & Junos --- BLACKBOX: 0, IFR: 0, UTILITY: 1, DEVICE: 3, CONNECTIONS: 3 
+    INFO[0000] Successfully imported lesson 21: Automating the Troubleshooting Chain --- BLACKBOX: 2, IFR: 0, UTILITY: 2, DEVICE: 3, CONNECTIONS: 6 
+    INFO[0000] Successfully imported lesson 32: Automated STIG Compliance Validation --- BLACKBOX: 0, IFR: 0, UTILITY: 1, DEVICE: 1, CONNECTIONS: 0 
+    INFO[0000] Successfully imported lesson 33: Quick and Easy Device Inventory --- BLACKBOX: 0, IFR: 0, UTILITY: 1, DEVICE: 2, CONNECTIONS: 0 
+    INFO[0000] Successfully imported lesson 34: Automated Device Configuration Backup --- BLACKBOX: 0, IFR: 0, UTILITY: 1, DEVICE: 2, CONNECTIONS: 0 
+    INFO[0000] Successfully imported lesson 35: Device Specific Template Generation --- BLACKBOX: 0, IFR: 0, UTILITY: 1, DEVICE: 2, CONNECTIONS: 0 
+    INFO[0000] Imported 21 lesson definitions.              
+    All detected lesson files imported successfully.
+
+This runs the exact same logic that ``syringed`` would use to load lessons on the server-side, so this is a really handy way to make sure the basics
+of curriculum definitions are done correctly.
+
+On the `NRE Labs Curriculum repository <https://github.com/nre-learning/nrelabs-curriculum>`_, we're actually running ``syrctl validate`` on every new
+Pull Request to ensure things are set up properly, as much as possible.

@@ -1,7 +1,12 @@
-.. _release:
+.. _release-overview:
 
-Antidote Release Process
-================================
+Antidote Release Overview
+=========================
+
+.. toctree::
+   :maxdepth: 1
+
+   releaseprocess.rst
 
 The Antidote project is composed of three primary Github repositories:
 
