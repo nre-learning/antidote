@@ -5,22 +5,21 @@ Tips and FAQs
 
 Snippet Indices
 ~~~~~~~~~~~~~~~
-Currently, in order to add a "Run this snippet" button underneath a code snippet, you need to add some HTML underneath
-each snippet, containing the 0-based index that the snippet takes within the document:
+Lesson Guides include the ability to add a "Run this snippet" button to automatically run the contents of a code snippet
+in a given terminal tab. To do this, the lesson author needs to add some HTML underneath each snippet:
 
 .. code::
 
     ```
     echo "Hello, World!"
     ```
-    <button type="button" class="btn btn-primary btn-sm" onclick="runSnippetInTab('linux1', 0)">Run this snippet</button>
+    <button type="button" class="btn btn-primary btn-sm" onclick="runSnippetInTab('linux1', this)">Run this snippet</button>
 
-It's very important to get that index right. If this button is meant to run the very first snippet, use index 0. For the second
-snippet, use 1, and so on. This is true regardless of whether or not some of your snippets don't have buttons. If you skip
-adding a button to a snippet, you must equally increment the index that's used for your next button.
+It used to be true that you had to provide the 0-based index of the snippet in question. However, as of v0.4.0, you can use the keyword
+`this` as in the above example.
 
-We realize this is a bit of a pain, and we're currently exploring ways to make this easier for you.
-
+The previous method is still possible, but this new method is highly preferred, so you don't have to bother counting the snippets
+in a lesson guide when you create these buttons. Just position the HTML below the snippet in question and you're good.
 
 Newlines at the end of snippets
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -85,7 +84,7 @@ The technical requirement is that the network device is accessible via SSH for t
 appropriate credentials and packaged within a docker container. We're already using NAPALM for doing
 inter-stage configuration, so we're ready to use other vendor kit from the get-go; it's just a matter
 of getting vendors to contribute their image. Juniper has done this as an early example, but any other
-vendor that is willing to abide by the  :ref:`NRE Labs Accords <nrelabs-accords>` is welcome to
+vendor that is willing to abide by the  :ref:`Code of Practice <code-practice>` is welcome to
 participate in the project.
 
 In short, we've put the right technical pieces in place to make it possible, now we're working on getting
