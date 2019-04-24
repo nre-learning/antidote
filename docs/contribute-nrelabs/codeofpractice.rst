@@ -56,4 +56,37 @@ these efforts is good will. So you have to demonstrate good will.
 Need to start with more or less tangible rules around this but the long and short of it is a demonstration
 of good will. You have to be willing to publish, in full, all of the resources needed to run your lesson. 
 
+**Why NRE Labs?**
+
+NRE Labs grew out of the experiences of working network engineers who were quick to see the value of embracing infrastructure automation for the purposes of network reliability engineering (“NRE”), but were challenged by the learning curve of doing so.
+
+Many automation tools were initially designed for compute and storage automation; in addition much of the work in this area has been done in open source projects, with varying degrees of commercialization. In parallel, the “SDN revolution” initially produced a widely held belief that network engineers would need to become coders or become obsolete. 
+
+The group of engineers who started NRE Labs believes strongly that expecting an entire profession to start over and learn programming from first principles is most likely to result in a general failure to adopt network automation at all, even as networking itself becomes ever more important in the basic functioning of distributed, multicloud operations.
+
+NRE Labs has been an open source project from its inception--both the platform itself and all the lessons. The NRE Labs community seeks to ensure that anyone anywhere can quickly learn key automation concepts using whatever network equipment and tools they have available. Thus we encourage contributions from as broad a swath of the networking and automation communities as possible.  Anyone can contribute to any aspect of the project, according to the rules laid out in the governance document.  
+
+**Mission and Scope**
+
+We resolve to provide a platform for education in infrastructure automation tools and techniques for network engineers that can immediately be applied to real-world daily tasks. 
+
+We encourage lessons of all types relating to network reliability engineering and infrastructure automation. All lessons should be concise and practical, focused on the mastery of a specific automation task.
+
+The scope of the Project includes software development under an OSI-approved open source licence (currently Apache License 2.0) supporting the mission, including documentation, testing, integration and the creation of other artifacts that aid the development, deployment, operation or adoption of the open source software project. 
+
+**Values**
+
+NRE Labs has always been open source and we expect it always will be.
+
+We believe in putting the needs of our users and our community before our needs or those of our employers.
+
+As an education-focused project, we believe above all in mentoring and helping to create the network reliability engineering leaders, and network-savvy open source leaders and contributors of the future.
+
+We believe in supporting diversity in ideas and experiences in the course of developing the project platform and lessons. This means ensuring that discussions about the project are respectful and constructive at all times.
+ 
+
+
+
+
+
 
