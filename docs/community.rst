@@ -4,13 +4,29 @@ Community Resources
 ===================
 
 We're truly interested in building a community around both the Antidote platform, as well as the NRE Labs curriculum.
-To that end, we've created several diverse resources for getting involved with the project.
+To that end, we've created several resources for getting involved with the project, each aimed at a different use case
+for community engagement.
+
+.. _community-forums:
+
+Community Forums
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The primary place for getting help with Antidote or NRE Labs is the `Community Forums <https://community.networkreliability.engineering>`_.
+Use these if you need help with a problem, such as writing a lesson, or setting up a development environment. In general, if you have a question,
+this is where you want to start.
+
+There are a number of post categories available there, ranging from general discussion, to specifically getting help building lessons or
+deploying Antidote. We'll also be posting news to the Announcements category from time-to-time, such as release plans, development cycles, etc.
+
+We're currently using these forums primarily for technical conversations about the platform, but will be expanding our use of the platform greatly
+in the coming months, as we have direct integrations between NRE Labs and the Community Forums planned this year.
 
 Github
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Everything we produce in the Antidote project is on Github underneath the `nre-learning <https://github.com/nre-learning>`_
 organization. Underneath that organization, you'll find all kinds of repositories, including the platform software,
-operational tooling, blogs, and more.
+operational tooling, blogs, and more. Use this to communicate with project members to file a bug or feature request, or otherwise participate
+in the code side of the project.
 
 While there is no single repository that hosts everything, the canonically "main" repository is probably the
 `Antidote repo <https://github.com/nre-learning/antidote>`_. Most subcomponents of the Antidote project
@@ -23,24 +39,20 @@ while we're working on a release, we'll open up a new project for that release, 
 release can be found within that project. So, if you're looking for a status on current development efforts,
 this is where you want to go.
 
-Twitter
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Follow `@NRELabs <https://twitter.com/nrelabs>`_ on twitter for periodic updates on NRE Labs and the underlying platform.
-
 Discord Channel
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 We use Discord for chat and audio/video collaboration. You can think of it like Slack, but even better, because it's
 more purpose-built for some of things we want to do in the future with NRE Labs, and the authentication story is a
 bit better. :)
 
+In general, use this for more informal, real-time communication with project maintainers and members, especially during events
+or livestreams.
+
 Join our Discord channel via `this link <https://discord.gg/fRuSUyD>`_.
 
-Mailing List
+Twitter
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-For those that prefer email for communication, we have two mailing lists:
-
-- `Developers <https://groups.google.com/forum/#!forum/nre-labs-developers>`_
-- `Users <https://groups.google.com/forum/#!forum/nre-labs-users>`_
+Follow `@NRELabs <https://twitter.com/nrelabs>`_ on twitter for periodic updates on NRE Labs and the underlying platform.
 
 Weekly Livestreams and Other Videos
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -59,7 +71,6 @@ The `Network Reliability Engineering blog <https://networkreliability.engineerin
 and any big changes to NRE Labs. You may also be interested to know that this blog is powered by Hugo, and
 `maintained in Github <https://github.com/nre-learning/nre-blog>`_, so if you want to write a guest post by opening a pull request
 to that repo, we'd love to have you!
-
 
 Trello Board
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

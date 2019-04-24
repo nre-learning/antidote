@@ -56,9 +56,13 @@ Starting the Environment
 ------------------------
 
 All of the scripts and kubernetes manifests for running Antidote within minikube are located in the
-`antidote-selfmedicate <https://github.com/nre-learning/antidote-selfmedicate>`_ repository. Clone and enter this repository::
+`antidote-selfmedicate <https://github.com/nre-learning/antidote-selfmedicate>`_ repository.Clone and enter this repository::
 
     git clone https://github.com/nre-learning/antidote-selfmedicate && cd antidote-selfmedicate/
+
+**Please remember** that changes are being made to this repository all the time. If you encounter issues, the
+very first thing you should try before you open an issue is to make sure you have the latest copy of this
+repository by doing a ``git pull`` on the master branch.
 
 .. note::  By default, the selfmedicate script will look at the relative path ``../antidote`` for
            your lesson directory, and automatically share those files to the development environment.
@@ -66,8 +70,8 @@ All of the scripts and kubernetes manifests for running Antidote within minikube
            ``LESSON_DIRECTORY`` variable at the top of ``selfmedicate.sh``.
 
 Within this repo, the ``selfmedicate.sh`` script is our one-stop shop for managing the development environment. This script
-interacts with minikube for us, so we don't have to. Only in rare circumstances, such as troubleshooting problems, should
-you have to interact directly with minikube. This script has several subcommands:
+interacts with minikube for us, so we don't have to. Only in rare circumstances, such as troubleshooting
+problems, should you have to interact directly with minikube. This script has several subcommands:
 
 .. CODE::
 
@@ -88,18 +92,19 @@ To initially start the selfmedicate environment, use the ``start`` subcommand, l
 
     ./selfmedicate.sh start
 
-The output of this script should be fairly descriptive, but a high-level overview of the four tasks accomplished
-by the ``selfmedicate`` script in this stage is as follows:
+The output of this script should be fairly descriptive, but a high-level overview of the four tasks
+accomplished by the ``selfmedicate`` script in this stage is as follows:
 
 1. ``minikube`` is instructed to start a Kubernetes cluster with a variety of optional arguments that
    are necessary to properly run the Antidote platform
 2. Once a basic Kubernetes cluster is online, some additional infrastructure elements are installed. These
    include things like Multus and Weave, to enable the advanced networking needed by lessons.
 3. Platform elements like ``syringe`` and ``antidote-web`` are installed onto the minikube instance.
-4. Common and large images, like the ``vqfx`` and ``utility`` images are pre-emptively downloaded to the minikube
-   instance, so that you don't have to wait for these to download when you try to spin up a lesson.
+4. Common and large images, like the ``vqfx`` and ``utility`` images are pre-emptively downloaded to the
+   minikube instance, so that you don't have to wait for these to download when you try to spin up a lesson.
 5. Once all the above is done, the script will ask for your sudo password so it can automatically add an entry
-   to ``/etc/hosts`` for you. Once this is done, you should be able to access the environment at the URL shown.
+   to ``/etc/hosts`` for you. Once this is done, you should be able to access the environment at the URL
+   shown.
 
 .. WARNING::
 
@@ -242,17 +247,3 @@ to manually pull an image ahead of time, you could run ``minikube ssh docker ima
   generally improve the responsiveness of the local environment. However, it can't do this for all possible images you might want
   to use. If you know you'll use a particular image commonly, consider adding it to the ``selfmedicate`` script, or manually
   pulling it within the minikube environment ahead of time.
-
-
-Validating Lesson Content
--------------------------
-
-Syringe, the back-end orchestrator of the Antidote platform, comes with a command-line utility called ``syrctl``. One of the things
-``syrctl`` can do for us is validate lesson content to make sure it has all of the basics to work properly. To run this command,
-you can compile the syrctl binary yourself from the Syringe repo, or you can execute the pre-built docker container:
-
-.. code::
-
-    docker run -v .:/antidote antidotelabs/syringe syrctl validate
-
-In the very near future, ``syrctl`` will be added to the CI pipeline for Antidote so that you know in your PR if there's any issues.
