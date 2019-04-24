@@ -11,7 +11,7 @@ educational content.
 .. toctree::
    :maxdepth: 1
 
-   architecture.rst
+   architecture/index.rst
    curricula/index.rst
    syringe/index.rst
    antidote-web/index.rst

@@ -26,6 +26,12 @@ provides an upstream API for provisioning lesson resources, then makes the relev
 specific compute resources and policies are instantiated. `Antidote-web <https://github.com/nre-learning/antidote-web>`_
 consumes the API offered by Syringe and is responsible for providing a fully web-based experience for interacting with lesson resources.
 
+.. toctree::
+   :maxdepth: 1
+
+   syringe/index.rst
+   antidote-web/index.rst
+
 
 Infrastructure Layer
 ^^^^^^^^^^^^^^^^^^^^

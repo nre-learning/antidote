@@ -9,15 +9,13 @@ called ``syrctl``. This is the command-line cline for Syringe, and while a popul
 is to control the back-end Syringe component(s), there are plenty of things that ``syrctl`` can do
 all on its own.
 
-.. _download-syrctl:
-
 Download ``syrctl``
 ^^^^^^^^^^^^^^^^^^^
 
 For every release of the Antidote platform, a corresponding release is created for Syringe. You can
-`always find the latest release here <https://github.com/nre-learning/syringe/releases/latest>`_, where
-precompiled binaries of Syringe have been posted. Download the file appropriate for your system, and extract
-the binaries into a directory on your ``$PATH`` (or extract them anywhere and run via relative path). Either is fine.
+[always find the latest release here](https://github.com/nre-learning/syringe/releases/latest), where
+precompiled binaries of Syringe have been posted. Download the file appropriate for your system,
+and either put into a directory on your ``$PATH``, or run via relative path.
 
 ``syrctl validate``
 ^^^^^^^^^^^^^^^^^^^
