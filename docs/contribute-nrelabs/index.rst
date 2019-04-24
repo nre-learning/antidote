@@ -22,7 +22,7 @@ your work, please read this section in its entirety, so your work has the maximu
    :titlesonly:
    :maxdepth: 0
 
-   accords.rst
+   codeofpractice.rst
    lifecycle.rst
    terminology.rst
    faq.rst

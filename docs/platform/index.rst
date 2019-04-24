@@ -13,6 +13,4 @@ educational content.
 
    architecture/index.rst
    curricula/index.rst
-   syringe/index.rst
-   antidote-web/index.rst
 

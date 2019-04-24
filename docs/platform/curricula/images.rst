@@ -11,11 +11,9 @@ in Antidote.
 - Any images meant to be used as type ``device`` or ``utility`` must be
   configured to listen for SSH connections on port 22 and support the credentials antidote/antidotepassword.
 
-
-
 How can we control what applications and operating systems are used in a lesson?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-We create lesson entities called endpoints from Docker images, including network devices.
+We create lesson entities called  :ref:`endpoints <toolbox-endpoints>`,  from Docker images, including network devices.
 We have a set of existing docker images you can probably find useful right out of the box, but we can also incorporate new images when necessary.
 See the images requirements page for more details.
 
@@ -25,4 +23,4 @@ the container source, and we'll be incorporating it into our docker hub account 
 However, you should only propose a new image when totally necessary. In many cases, putting things like scripts or configs within the lesson directory is sufficient.
 
 
-Need to highlight existing images that should be considered before new images are created. List the popular images and describe them
+**TODO(mierdin):** Need to highlight existing images that should be considered before new images are created. List the popular images and describe them
