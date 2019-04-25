@@ -3,7 +3,6 @@
 The NRE Labs Code of Practice
 =============================
 
-
 The main purpose of this document is as a draft for the NRE Labs and Antidote Code of Practice - a 
 document that clearly states what we stand for, and what you should agree to in order to be 
 considered part of the community. It’s a statement about what drove us to create this, and why we

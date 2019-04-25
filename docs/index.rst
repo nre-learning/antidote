@@ -16,6 +16,7 @@ Introduction to Antidote
    contribute-nrelabs/index.rst
    contribute-antidote/index.rst
    releases/index.rst
+   governance/index.rst
    community.rst
 
 Antidote is a community initiatve to democratize interactive, dependency-free learning.
