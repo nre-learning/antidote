@@ -52,13 +52,28 @@ to install, but do not start minikube.
     requirement, it's a highly advised minimum. Depending on the lessons you start, it can require quite a bit of system
     resources, especially if you start multiple lessons in parallel.
 
-Starting the Environment
-------------------------
+
+Preparing and Starting the Environment
+--------------------------------------
+
+Open a terminal window.  Create, then enter the directory for the selfmedicate environment and curriculum lessons::
+
+    mkdir ~/antidote-local && cd ~/antidote-local
+ 
+Before cloning and starting selfmedicate itself, you'll want to fork then clone the nrelabs-curriculum repository.  Log into github, navigate to the `nrelabs-curriculum <http://github.com/nre-learning/nrelabs-curriculum>`_ repository.  Click "Fork" in the upper-right portion of the browser window. Navigate to your forked repository, then click the green "Clone or Download" button.  Copy the URL to clipboard.  In the terminal window, clone this forked repository::
+
+    git clone git@github.com:username/nrelabs-curriculum.git
 
 All of the scripts and kubernetes manifests for running Antidote within minikube are located in the
 `antidote-selfmedicate <https://github.com/nre-learning/antidote-selfmedicate>`_ repository.Clone and enter this repository::
 
     git clone https://github.com/nre-learning/antidote-selfmedicate && cd antidote-selfmedicate/
+
+Now verify the two repositories have been cloned::
+
+    username@host:~/antidote-local$ ls
+    antidote-selfmedicate  nrelabs-curriculum
+
 
 **Please remember** that changes are being made to this repository all the time. If you encounter issues, the
 very first thing you should try before you open an issue is to make sure you have the latest copy of this
