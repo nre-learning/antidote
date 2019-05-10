@@ -30,8 +30,8 @@ that use minikube to deploy a full functioning Antidote deployment on your local
     becoming familiar with ``minikube`` itself so that you are more able to troubleshoot the environment
     when things go wrong. Keep a bookmark to the `minikube docs <https://kubernetes.io/docs/setup/minikube/>`_ handy, just in case.
 
-Install and Configure Dependencies
-----------------------------------
+Install and Configure Prerequisites
+-----------------------------------
 
 The development environment runs within a virtual machine, so you'll need a hypervisor. We recommend
 `Virtualbox <https://www.virtualbox.org/wiki/Downloads>`_ as it is widely supported across operating systems
@@ -39,7 +39,7 @@ as well as the automation we'll use to get everything spun up on top of it.
 
 Next, you'll need minikube. This is by far the easiest way to get a working instance of Kubernetes
 running on your laptop. Follow the `installation instructions <https://kubernetes.io/docs/tasks/tools/install-minikube/>`_
-to install, but do not start minikube.
+to install, but do not start minikube.  Make sure you install kubectl as well.  Instructions are on the same page.
 
 .. warning::
 
@@ -53,8 +53,8 @@ to install, but do not start minikube.
     resources, especially if you start multiple lessons in parallel.
 
 
-Preparing and Starting the Environment
---------------------------------------
+Preparing the Environment
+-------------------------
 
 Open a terminal window.  Create, then enter the directory for the selfmedicate environment and curriculum lessons::
 
@@ -65,9 +65,11 @@ Before cloning and starting selfmedicate itself, you'll want to fork then clone 
     git clone git@github.com:username/nrelabs-curriculum.git
 
 All of the scripts and kubernetes manifests for running Antidote within minikube are located in the
-`antidote-selfmedicate <https://github.com/nre-learning/antidote-selfmedicate>`_ repository.Clone and enter this repository::
+`antidote-selfmedicate <https://github.com/nre-learning/antidote-selfmedicate>`_ repository.  **Please remember** that changes are being made to this repository all the time. If you encounter issues, the very first thing you should try before you open an issue is to make sure you have the latest copy of this repository by doing a ``git pull`` on the master branch.
 
-    git clone https://github.com/nre-learning/antidote-selfmedicate && cd antidote-selfmedicate/
+Clone and enter this repository::
+
+    git clone https://github.com/nre-learning/antidote-selfmedicate
 
 Now verify the two repositories have been cloned::
 
@@ -75,14 +77,12 @@ Now verify the two repositories have been cloned::
     antidote-selfmedicate  nrelabs-curriculum
 
 
-**Please remember** that changes are being made to this repository all the time. If you encounter issues, the
-very first thing you should try before you open an issue is to make sure you have the latest copy of this
-repository by doing a ``git pull`` on the master branch.
+Now enter the antidote-selfmedicate directory::
 
-.. note::  By default, the selfmedicate script will look at the relative path ``../antidote`` for
-           your lesson directory, and automatically share those files to the development environment.
-           If this location doesn't exist, either place the appropriate repository there, or edit the
-           ``LESSON_DIRECTORY`` variable at the top of ``selfmedicate.sh``.
+    cd antidote-selfmedicate
+
+Starting Self-Medicate
+----------------------
 
 Within this repo, the ``selfmedicate.sh`` script is our one-stop shop for managing the development environment. This script
 interacts with minikube for us, so we don't have to. Only in rare circumstances, such as troubleshooting
@@ -162,7 +162,7 @@ Pausing and Resuming Environment
 
 As mentioned above, if you destroy the minikube environment, you'll need to perform the ``start`` command all over again.
 However, it would be nice to be able to stop the environment temporarily, and resume later without installing everything
-over again from scratch.
+over again from scratch.3
 
 Fortunately, the ``stop`` and ``resume`` subcommands do just this for us. To stop/pause the environment, run:
 
