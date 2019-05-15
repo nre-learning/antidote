@@ -60,26 +60,22 @@ Open a terminal window.  Create, then enter the directory for the selfmedicate e
 
     mkdir ~/antidote-local && cd ~/antidote-local
  
-Before cloning and starting selfmedicate itself, you'll want to fork then clone the nrelabs-curriculum repository.  Log into github, navigate to the `nrelabs-curriculum <http://github.com/nre-learning/nrelabs-curriculum>`_ repository.  Click "Fork" in the upper-right portion of the browser window. Navigate to your forked repository, then click the green "Clone or Download" button.  Copy the URL to clipboard.  In the terminal window, clone this forked repository::
+Before cloning and starting selfmedicate itself, you'll want to fork then clone the nrelabs-curriculum repository.
+Log into github, navigate to the `nrelabs-curriculum <http://github.com/nre-learning/nrelabs-curriculum>`_ repository. 
+Click "Fork" in the upper-right portion of the browser window, and select your username as the fork location.
+Navigate to your forked repository, then click the green "Clone or Download" button.  Copy the URL to clipboard.
+In the terminal window, clone this forked repository:
 
-    git clone git@github.com:username/nrelabs-curriculum.git
+    git clone https://github.com/< YOUR GITHUB USERNAME >/nrelabs-curriculum
 
 All of the scripts and kubernetes manifests for running Antidote within minikube are located in the
-`antidote-selfmedicate <https://github.com/nre-learning/antidote-selfmedicate>`_ repository.  **Please remember** that changes are being made to this repository all the time. If you encounter issues, the very first thing you should try before you open an issue is to make sure you have the latest copy of this repository by doing a ``git pull`` on the master branch.
+`antidote-selfmedicate <https://github.com/nre-learning/antidote-selfmedicate>`_ repository.  **Please remember** that
+changes are being made to this repository all the time. If you encounter issues, the very first thing you should try before
+you open an issue is to make sure you have the latest copy of this repository by doing a ``git pull`` on the master branch.
 
 Clone and enter this repository::
 
-    git clone https://github.com/nre-learning/antidote-selfmedicate
-
-Now verify the two repositories have been cloned::
-
-    username@host:~/antidote-local$ ls
-    antidote-selfmedicate  nrelabs-curriculum
-
-
-Now enter the antidote-selfmedicate directory::
-
-    cd antidote-selfmedicate
+    git clone https://github.com/nre-learning/antidote-selfmedicate && cd antidote-selfmedicate
 
 Starting Self-Medicate
 ----------------------
@@ -162,7 +158,7 @@ Pausing and Resuming Environment
 
 As mentioned above, if you destroy the minikube environment, you'll need to perform the ``start`` command all over again.
 However, it would be nice to be able to stop the environment temporarily, and resume later without installing everything
-over again from scratch.3
+over again from scratch.
 
 Fortunately, the ``stop`` and ``resume`` subcommands do just this for us. To stop/pause the environment, run:
 
