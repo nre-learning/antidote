@@ -27,8 +27,6 @@ to really make your content stand out.
 
 Lessons are the quintessential curriculum resource.
 
-
-
 When syringe starts, it looks for lesson definitions within the configured curriculum directory,
 loads them into memory, and serves them directly via its API.
 
@@ -55,6 +53,9 @@ simple lesson in two parts, with a single linux container for interactivity:
   - YAML
   - data modeling
   - data model
+
+  # An optional field to add a lesson to a collection. The collection referenced here by ID must be defined beforehand.
+  collection: 1
 
   utilities:
   - name: linux1

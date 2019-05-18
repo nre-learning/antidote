@@ -19,6 +19,7 @@ For every release of the Antidote platform, a corresponding release is created f
 precompiled binaries of Syringe have been posted. Download the file appropriate for your system, and extract
 the binaries into a directory on your ``$PATH`` (or extract them anywhere and run via relative path). Either is fine.
 
+.. _syrctl-validate:
 
 Validating Lesson Content
 ^^^^^^^^^^^^^^^^^^^^^^^^^
