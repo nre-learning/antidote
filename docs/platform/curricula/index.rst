@@ -20,6 +20,6 @@ contribute to an existing curriculum.
 
    lessons/index.rst
    images.rst
+   collections.rst
 
-.. collections.rst
 .. quizzes.rst
