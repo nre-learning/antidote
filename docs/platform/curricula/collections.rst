@@ -17,9 +17,8 @@ nicely rendering it in the web UI:
 
 .. image:: /images/collections.png
 
-
-
 Once defined, other resources like lessons are able to reference the ID(s) of the collection they belong to, if applicable.
+See the ``collection`` field in `lesson definitions <lessons>`_.
 
 .. NOTE::
 
