@@ -56,6 +56,20 @@ to install, but do not start minikube.  Make sure you install kubectl as well.  
 Preparing the Environment
 -------------------------
 
+You can create a configuration file for selfmedicate, but it is not required.  It should be called "config" and located in directory "$HOME/.selfmedicate"  Not all variables need to be specified.  The following variables are supported:
+
+CPUS               - The number of CPUs minikube should run on.  (default: 2)
+MEMORY             - The amount of memory in megabytes minikube should run on. (default: 8192)
+VMDRIVER           - The hypervisor minikube should use (default: virtualbox)
+LESSON_DIRECTORY   - The location of the lesson directory.  (default: "../nrelabs-curriculum")
+
+Example::
+
+    CPUS=4
+    MEMORY=16384
+    VMDRIVER=kvm2
+    LESSON_DIRECTORY="$HOME/projects/nrelabs-curriculum"
+
 Open a terminal window.  Create, then enter the directory for the selfmedicate environment and curriculum lessons::
 
     mkdir ~/antidote-local && cd ~/antidote-local
