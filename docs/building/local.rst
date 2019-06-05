@@ -62,6 +62,9 @@ CPUS               - The number of CPUs minikube should run on.  (default: 2)
 MEMORY             - The amount of memory in megabytes minikube should run on. (default: 8192)
 VMDRIVER           - The hypervisor minikube should use (default: virtualbox)
 LESSON_DIRECTORY   - The location of the lesson directory.  (default: "../nrelabs-curriculum")
+MINIKUBE           - The path to the 'minikube' command. (default: "minikube", if installed on PATH)
+KUBECTL            - The path to the 'kubectl' command. (default: "kubectl", if installed on PATH)
+PRELOADED_IMAGES   - The list of images to be pre-loaded in advance. (default: "vqfx:snap1 vqfx:snap2 vqfx:snap3 utility")
 
 Example::
 
