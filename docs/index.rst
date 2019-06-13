@@ -13,8 +13,7 @@ Introduction to Antidote
 
    platform/index.rst
    building/building.rst
-   contribute-nrelabs/index.rst
-   contribute-antidote/index.rst
+   contribute/index.rst
    releases/index.rst
    community.rst
 

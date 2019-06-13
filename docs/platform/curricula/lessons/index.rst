@@ -21,7 +21,7 @@ to really make your content stand out.
    endpoints.rst
    connections.rst
    guides.rst
-   autoconfiguration.rst
+   configuration.rst
    iframe.rst
    verification.rst
 

@@ -93,7 +93,7 @@ A sample configuration (found in a :ref:`lesson definition <lessons>`) is below:
 |                      |  22, and authenticate with                        |
 |                      |  antidote/antidotepassword                        |
 +----------------------+---------------------------------------------------+
-| Autoconfiguration    |  :ref:`Autoconfiguration <toolbox-autoconfig>`    |
+| Autoconfiguration    |  :ref:`Autoconfiguration <toolbox-config>`        |
 |                      |  is done via NAPALM.                              |
 +----------------------+---------------------------------------------------+
 | Default Ports        |  Port 22 is opened by default. Lesson authors can |
@@ -140,3 +140,9 @@ a soft phone client that the learner uses to register to the PBX:
 | Default Ports        |  No default ports. Lesson authors must explicitly   |
 |                      |  specify a list of ports to open. See example above |
 +----------------------+-----------------------------------------------------+ 
+
+
+
+
+Don't forget the env vars that are passed to pods, so that web resources can know what path they'll need to be accessible at.
+Right now the endpoint must be http only. The traffic will be passed through the load balancer, which provides HTTPs.
