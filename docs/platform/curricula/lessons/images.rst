@@ -1,10 +1,10 @@
 .. _lessonimages:
 
-Lesson Endpoint Images
+Endpoint Images
 ===================================
 
 Antidote, and all of the lessons that it manages, runs on Kubernetes As a result, all lesson
-:ref:`endpoints <toolbox-endpoints>`, including network devices, are executed from prebuilt
+:ref:`endpoints <endpoints>`, including network devices, are executed from prebuilt
 Docker images. This means that if you have a particular piece of software you wish to show,
 you may need to build your own Docker image that's compatible with Antidote.
 

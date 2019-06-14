@@ -8,7 +8,7 @@ Deploying Antidote into Production
     This guide is **highly** subject to change. This was the initial documentation on release in October 2018, and the infrastructure for deploying Antidote
     is changing dramatically. If you have questions, the best bet is to get in touch with us via our :ref:`community resources <community>`.
 
-This is NOT the guide for running a local instance of Antidote. That can be found in the :ref:`build local instructions <buildlocal>`. These instructions are if you wish to leverage the Terraform and Ansible scripts to get a production-quality instance of Antidote running in the cloud.
+This is NOT the guide for running a local instance of Antidote. That can be found in the :ref:`selfmedicate instructions <selfmedicate>`. These instructions are if you wish to leverage the Terraform and Ansible scripts to get a production-quality instance of Antidote running in the cloud.
 
 Prerequisites
 -------------

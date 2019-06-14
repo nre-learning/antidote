@@ -1,10 +1,11 @@
 .. _contrib-lifecycle:
 
-The Curriculum Contribution Lifecycle
-=====================================
+Curriculum Contribution Lifecycle
+=================================
 
 Contributing to the curriculum is fairly straightforward, but you should consider the guidance
-in this document to ensure you spend your time wisely.
+in this document to ensure you spend your time wisely. The last thing we want is for you to dedicate days
+or even weeks of your time to building a lesson only to find out someone is already working on something similar.
 
 .. NOTE::
 
@@ -86,7 +87,7 @@ and start making commits as you add or change lesson content.
 Next - you'll want a local copy of the Antidote stack running locally so you can rapidly test and
 iterate on the changes you've made. Ironing out all of the bugs locally before you submit a pull
 request makes the review process much smoother. For more info, see the
-:ref:`local build <buildlocal>` documentation.
+:ref:`selfmedicate <selfmedicate>` documentation.
 
 Next thing you'll want to bookmark is the documentation on :ref:`curriculum definitions <curricula>`.
 All curriculum resources, such as lessons,  are defined "as-code", meaning they are all defined using simple text files stored in Git.

@@ -50,7 +50,7 @@ when being pasted into the terminal window, meaning the extra newline is execute
 How can I stand up a development environment to test my curriculum contributions?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The :ref:`local build <buildlocal>` documentation is exactly what you need. Our "selfmedicate"
+The :ref:`selfmedicate <selfmedicate>` documentation is exactly what you need. This
 environment allows you to spin up a local instance of Antidote on your own machine, and map your
 curriculum into it so you can see your changes live without having to open a pull request right away.
 

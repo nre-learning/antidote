@@ -14,17 +14,19 @@ but it's not without it's peculiarities, so keep that handy.
 First-Time Setup
 ~~~~~~~~~~~~~~~~
 
-To contribute to the docs, the first thing you'll want to do is fork the
+To contribute to the docs, the first thing you'll want to do is fork and clone the
 `Antidote repo <https://github.com/nre-learning/antidote>`_ so that a copy of the repo is hosted under your
-username. From there, you can clone that repo and get into the ``docs`` directory:
+username. Follow the :ref:`Antidote Git instructions <antidote-git>` to do this.
+
+Once properly cloned, ``cd`` into the local repo's  ``docs`` directory:
 
 .. CODE::
 
-    git clone https://github.com/<username>/antidote
     cd antidote/docs/
 
 Before continuing, you need to make sure you have a working Python installation, complete with the ``pip`` installation
-utility. ``pip`` is available in most package managers, so if you don't have it, a quick Google search will set you straight.
+utility. ``pip`` is available in most package managers (for instance, Ubuntu uses the package name ``python-pip``),
+so if you don't have it, a quick Google search will set you straight.
 
 Next, install the ``virtualenv`` package:
 
@@ -59,7 +61,7 @@ This is accomplished with the simple command:
 
 .. CODE::
 
-    make html
+    make clean html
 
 This creates a directory ``_build/html``, and renders all of the raw RST source material into the HTML version you're
 accustomed to seeing online. However, in this case, this is all done locally, so you can preview any changes you've made
@@ -70,20 +72,10 @@ immediately, by navigating to the file location within your browser:
     file:///path/to/antidote/docs/_build/html/index.html
 
 Once there you can click around and take a look at the result of your changes. You can keep this tab open and continue to make
-changes to the RST source - when you want to again preview those changes, re-run ``make html`` and refresh the page.
-
-Note that the docs build process only performs a one-way render of the source RST into HTML. If a previous build
-created an HTML file, and later on you deleted or moved the source file, the rendered file may still exist.
-If you notice that some content is sticking around and making things messy, it might be useful to delete the build
-directory and re-run the build, so you can start clean. I like to run this every time, since it doesn't add that much
-processing time and it guarantees a clean build:
-
-.. CODE::
-
-    rm -rf _build/ && make html
+changes to the RST source - when you want to again preview those changes, re-run ``make clean html`` and refresh the page.
 
 Pushing your Changes
 ~~~~~~~~~~~~~~~~~~~~
 
-Once you've iterated a few times on your docs changes, and you're happy with the preview results, you can commit your
-changes and push them just like any other Git repository.
+Once you've iterated a few times on your docs changes, and you're happy with the preview results, you can follow
+the :ref:`Antidote Git instructions <antidote-git>` to commit your changes, push them, and open a pull request.

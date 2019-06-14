@@ -26,7 +26,7 @@ The Antidote project is composed of a set of open source software applications
 that work together to provide this learning experience. 
 The `antidote-selfmedicate <https://github.com/nre-learning/antidote-selfmedicate>`_ repository is the simplest way to get this going, as it's,
 designed to allow you to run everything on your laptop, using `minikube`. This is very useful if you're looking to develop some lessons
-and need an easy way to test them out without a lot of setup. See the :ref:`build local <buildlocal>` instructions for more info on that.
+and need an easy way to test them out without a lot of setup. See the :ref:`selfmedicate <selfmedicate>` instructions for more info on that.
 
 In case you're looking to run Antidote in more of a public-facing, production capacity, the main `Antidote
 repository <https://github.com/nre-learning/antidote>`_ contains terraform configurations, kubernetes manifests,

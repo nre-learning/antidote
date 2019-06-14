@@ -1,5 +1,3 @@
-.. architecture:
-
 Architecture
 ================================
 
