@@ -8,11 +8,11 @@ it will give you valuable overview of the various components involved in the Ant
 
 At a high level, the two primary areas of focus for the Antidote platform are:
 
-- **`antidote-web <https://github.com/nre-learning/antidote-web>`_** - this is the web front-end for the platform. If you lean more
+- `antidote-web <https://github.com/nre-learning/antidote-web>`_ - this is the web front-end for the platform. If you lean more
   towards front-end development, such as HTML, CSS, and Javascript, this repository is a good place to start.
-- **`syringe <https://github.com/nre-learning/antidote-web>`_** - this is the "brains" of Antidote - the back-end orchestrator that
+- `syringe <https://github.com/nre-learning/antidote-web>`_ - this is the "brains" of Antidote - the back-end orchestrator that
   is responsible for making everything work behind the scenes. If you've primarily worked with systems languages like Python or Go,
-- **`antidote-ops <https://github.com/nre-learning/antidote-ops>`_** - this is where we do all the automation to make the project itself
+- `antidote-ops <https://github.com/nre-learning/antidote-ops>`_ - this is where we do all the automation to make the project itself
   work. Here, we manage scripts and playbooks for doing release automation - that is, the workflows for actually releasing a version of
   the platform software. We also manage the NRE Labs site itself here - both automation for the infrastructure, as well as curriculum
   release automation. If you like automating things, this may be a good place for you to start.
@@ -33,28 +33,35 @@ The absolute easiest way to contribute is to use the platform and let us know ab
 about improving things. This can be as simple as providing feedback about your experience on the NRE Labs site, or with
 the :ref:`curriculum development environment <selfmedicate>`.
 
+There's a few ways to do this. One of the simplest is to simply make a post on the `community forums <https://community.networkreliability.engineering>`_
+and let us know what you think. A maintainer will be along to get more information if needed, and may provide guidance on what else to do.
 
-- Testing the platform and opening bug reports
+Second, you could :ref:`post a Github Issue <git-issues>` on the Github repository you think applies to your concern best. Same as with the community
+forums, someone will be along to provide guidance from there..
 
+Contributing your perspective, no matter your training, is just as valuable a contribution as writing code, so please don't shy away from this.
+If you have constructive feedback, we want to hear it.
 
 Pull Request Reviews
 ~~~~~~~~~~~~~~~~~~~~
 
-I always open PRs as soon as I'm working on something,
-  and try my best to push every commit as soon as I make it. Anyone and everyone is welome
-  to make constructive questions or comments on any in-progress PR, you don't have to be
-  a maintainer to do this. Asking questions about the platform or work that's happening on
-  it is incredibly valuable on its own, and is often the best way to become more familiar with 
-  the platform without any risk.
+If you want to start getting familiar with the platform, another easy way is to :ref:`watch the relevant Github repository <git-watching>`
+for updates, such as new Pull Requests, and ask questions. Lots of platform developers open pull requests as soon as they start working
+on a feature or a bugfix, which often gives a large window of time where the pull request is open and questions can be asked, even
+on specific lines of code that changed.
+
+Any constructive comments or questions here are not only appreciated, but it's often the best way to get insight into how the platform works,
+as you're inserting yourself right into where the work is actually getting done, without having to write a single line of code yourself.
+You don't have to be a platform developer or even consider yourself a developer at all to be curious and ask questions. We'd love to have you
+and help you get more familiar with how things work within the Antidote platform.
 
 Starting Small
 ~~~~~~~~~~~~~~
 
-https://github.com/nre-learning/antidote-ops/labels/complexity%3A%20low
+Okay - let's say you're ready and willing to contribute something more directly, but you're not sure where to start. Fear not - you're not alone.
+This is one of the most challenging parts of any open source project - picking that first or second task that's challenging enough to teach you
+something, but not so challenging that you have to spin your wheels for weeks before you feel like you've accomplished anything.
 
-- Issues in the repos. If you learn more towards web or front-end development, the complexity: low
-  tag in antidote-web may interest you. If you like to work on back-end systems, the same tag in Syringe may
-  interest you. These are feature enhancements or bugfixes that I've set aside for folks to learn the platform,
-  that are relatively approachable - i.e. don't require you to know how everything works in order to satisfy them.
-
-Support? ask questions via the :ref:`community forums <community-forums>`,
+We've explicitly carved up Github issues in nearly every Antidote project repository just for you. Take a look at the :ref:`Git section
+of these docs <git-lowhanging>` where you'll find a system of labeling issues by complexity, so you can see at-a-glance which issues have
+been identified for the express purpose of getting started with the project.

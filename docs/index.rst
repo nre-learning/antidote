@@ -51,4 +51,3 @@ your own environments.
 
 :ref:`Contributions <contrib-curriculum>` are welcome.
 
-*Please note that NRE Labs is currently in limited tech preview.*

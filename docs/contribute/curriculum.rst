@@ -1,7 +1,7 @@
-.. _contrib-lifecycle:
+.. _contrib-curriculum:
 
-Curriculum Contribution Lifecycle
-=================================
+Contributing to the NRE Labs Curriculum
+=======================================
 
 Contributing to the curriculum is fairly straightforward, but you should consider the guidance
 in this document to ensure you spend your time wisely. The last thing we want is for you to dedicate days
@@ -135,3 +135,16 @@ of these guidelines, to make the review process much smoother.
 - Can we show this in NRE labs? Usage rights?
 - Does this follow the :ref:`Lesson Image Requirements <lessonimages>`?
 - Is the business benefit clear from this lesson? How easy is it for people to link this content with their day-to-day?
+
+
+.. _contrib-othermaintainers:
+
+Contribute a Lesson for Your Open Source Project!
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+If you are a maintainer or creator for an open source project in the infrastructure or automation space,
+the Antidote project would love to have you. We feel very strongly that if you're maintaining an open source
+project, that you should have the right of first refusal for representing it in the NRE Labs curriculum.
+
+Please get in touch with us using any of our :ref:`community channels <community>`_ and we'll make every effort
+to bring you up to speed with the environment so that you can show off your project on the site.
