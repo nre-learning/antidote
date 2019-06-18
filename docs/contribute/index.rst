@@ -27,3 +27,9 @@ Before starting your work, please read this section in its entirety, so your wor
    platform.rst
    docs.rst
    faq.rst
+
+.. NOTE::
+
+    No one should feel like they have to get permission to contribute. There's no harm in you opening an Issue or Pull Request
+    that you feel is valuable and is worthy of your time. This section of the docs is aimed at empowering you to do this on your own
+    and get your contributions merged into the project.

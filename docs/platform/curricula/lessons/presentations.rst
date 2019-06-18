@@ -1,7 +1,7 @@
 .. _toolbox-presentation:
 
-Endpoint Presentation
-=====================
+Endpoint Presentations
+======================
 
 At this point, hopefully you understand how :ref:`Endpoints <endpoints>` provide a basis for creating an interactive
 learning experience. However, there's no interactivity unless those Endpoints are made accessible somehow
@@ -75,6 +75,8 @@ then the ``additionalPorts`` field becomes a required field.
 Because the above Endpoint ``restapi`` didn't have any presentations, we needed to ensure at least one port
 was provided in ``additionalPorts``. The learner can then access the ``linux1`` endpoint and use the tooling
 in that Endpoint to access the REST API of ``restapi``.
+
+.. _presentation-options:
 
 Presentation Options
 ~~~~~~~~~~~~~~~~~~~~~

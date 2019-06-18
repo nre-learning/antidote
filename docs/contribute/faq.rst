@@ -3,49 +3,6 @@
 Tips and FAQs
 =============
 
-Snippet Indices
-~~~~~~~~~~~~~~~
-Lesson Guides include the ability to add a "Run this snippet" button to automatically run the contents of a code snippet
-in a given terminal tab. To do this, the lesson author needs to add some HTML underneath each snippet:
-
-.. code::
-
-    ```
-    echo "Hello, World!"
-    ```
-    <button type="button" class="btn btn-primary btn-sm" onclick="runSnippetInTab('linux1', this)">Run this snippet</button>
-
-It used to be true that you had to provide the 0-based index of the snippet in question. However, as of v0.4.0, you can use the keyword
-`this` as in the above example.
-
-The previous method is still possible, but this new method is highly preferred, so you don't have to bother counting the snippets
-in a lesson guide when you create these buttons. Just position the HTML below the snippet in question and you're good.
-
-Newlines at the end of snippets
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-When you're adding a snippet to a lesson guide, sometimes you may want an extra newline run at the end.
-For example, if you are executing some Python code, and your snippet ends on a loop, or a conditional,
-you need an extra newline to get the interpreter to understand you're done defining the loop.
-
-The solution to this is to use ``<pre>`` tags in lieu of the traditional triple-backtick for embedding
-code in Markdown. For instance, instead of this:
-
-.. code::
-
-    ```
-        (code)
-    ```
-
-Do this:
-
-.. code::
-
-    <pre>
-        (code)
-    </pre>
-
-These are rendered exactly the same way in the lesson guide, but the latter is interpreted much more literally
-when being pasted into the terminal window, meaning the extra newline is executed like any other character.
 
 How can I stand up a development environment to test my curriculum contributions?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -105,5 +62,5 @@ curriculum repo within your lesson directory. In
 it's a matter of just putting it in your lesson directory. The entire curriculum is mapped via volume
 to every container that runs in a lesson, so just by having those files in that directory, you'll have access to them at runtime.
 
-You can also create a docker image that follows the `image` (LINK) standards if you want a more complicated software installation to
-be present.
+You can also create a docker image that follows the :ref:`image <lessonimages>` guidelines
+if you want a more complicated software installation to be present.
