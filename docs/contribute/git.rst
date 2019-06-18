@@ -206,3 +206,33 @@ working on it. Also, Github recently introduced a new feature for opening "draft
 can also see a dropdown that lets you do this.
 
 When you're ready for someone to review your work, remove any mentions of "WIP", and mark the PR ready for review.
+
+.. _git-pr-process:
+
+Pull Request Review Process
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+With the exception of very small Pull Requests to fix things like typos, the chance that your Pull Request will be merged immediately
+with no suggested changes is very low. However, the good news is, that's okay, and expected. The job of a project maintainer is to
+get pull requests **merged**, not closed. So, expect that your pull request will likely generate questions, and probably some suggested
+changes. However, you can also expect the following behavior from any project maintainer:
+
+- All comments/questions will be constructive in nature, aimed at helping you as a contributor, and the overall project grow.
+- We always want to end every pull request in a "merge" if at all possible. Every question or suggestion is aimed at putting
+  you closer to getting your contribution into the project.
+
+You can explicitly request reviews from anyone in your pull requests, but the following groups exist to help categorize potential
+reviewers:
+
+- `Community Managers <https://github.com/orgs/nre-learning/teams/community-managers>`_
+- `Technical Reviewers <https://github.com/orgs/nre-learning/teams/technical-reviewers>`_
+
+The Antidote project is still new, so we have a simple set of folks to do reviews and approvals. This will naturally change
+over time as the project grows, but here's who we have now:
+
+- For the `nrelabs-curriculum <https://github.com/nre-learning/nrelabs-curriculum>`__ repository,
+  `Derick Winkworth <https://github.com/cloudtoad>`_ is the lead maintainer, and all pull requests must get at least one approval from him.
+  Contributors are welcome to request reviews from anyone else, but Derick must approve prior to merge.
+- For any other repository, especially platform repositories like `antidote-web <https://github.com/nre-learning/antidote-web>`_,
+  `syringe <https://github.com/nre-learning/syringe>`_, or `antidote-ops <https://github.com/nre-learning/antidote-ops>`_,
+  `Matt Oswalt <https://github.com/mierdin>`_ is the lead and the same approval requirements apply.

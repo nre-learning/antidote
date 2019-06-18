@@ -13,4 +13,3 @@ educational content.
 
    architecture/index.rst
    curricula/index.rst
-

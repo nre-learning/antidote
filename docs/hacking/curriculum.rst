@@ -1,7 +1,7 @@
 .. _selfmedicate:
 
-Selfmedicate - Antidote's Curriculum Development Environment
-============================================================
+Hacking on the Curriculum
+=========================
 
 If you want to contribute some lessons, you'll probably want to find a way to run them locally
 yourself before opening a pull request. Or maybe you're looking to show some automation demos
@@ -22,6 +22,12 @@ that use minikube to deploy a full functioning Antidote deployment on your local
     Currently, selfmedicate only supports mac and linux. If you want to run this on Windows, we
     recommend executing these scripts from within a linux virtual machine, or within 
     `Windows WSL <https://docs.microsoft.com/en-us/windows/wsl/faq>`_.
+
+.. NOTE::
+
+    This section discusses technical steps for building Antidote locally for the purposes of editing or adding to
+    a curriculum. See :ref:`here <contrib-curriculum>` for instructions on how to contribute your changes or additions
+    to the flagship NRE Labs curriculum.
 
 Install and Configure Prerequisites
 -----------------------------------

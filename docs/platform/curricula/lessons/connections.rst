@@ -3,9 +3,8 @@
 Connections
 ===========
 
-Another cool thing about Antidote is that it allows lesson creators to build complex topologies of
-Endpoints through some simple back-end networking orchestrated by :ref:`Syringe <syringe>`_ and made possible by Kubernetes
-and a special networking plugin.
+Another cool thing about Antidote is that it allows lesson creators to build complex topologies of Endpoints through some simple
+back-end networking orchestrated by :ref:`Syringe <syringe>` and made possible by Kubernetes and a special networking plugin.
 
 We explain **how** this all works over in the :ref:`Architecture docs <architecture>`. The way you use this functionality in a lesson
 is fairly simple. The first thing you should know is that all Endpoints are connected to the same "management" network. The ``eth0``

@@ -1,11 +1,75 @@
 Stages
 ======
 
-Explanation of the intention behind stages, and what happens when navigating between them.
-How to configure them in a lesson definition, and the required directory structure.
+When learning any topic, it's important to be able to break it up into reasonable "chunks". No one wants to start at a wall
+of learning material they know will take them the better part of an afternoon to get through.
+
+In Antidote, lessons are broken up into Stages. We'll also use the term "Labs" to describe these from time-to-time; consider them
+synonomous. The intention behind Stages is to provide a logical place to "break up" lesson content. You can think of them like
+chapters in a textbook; where the goal of an Algebra textbook is to teach algebra, we really only care about linear equations in
+Chapter 1. Those not only provided bounded structures for learning, where the learner is able to more easily wrap their head around
+the content and feel like they've accomplished something, it also helps them understand the path in front of them.
+
+In any lesson, Stages are defined using the `stages` stanza in the lesson definition file:
+
+.. CODE:: yaml
+
+    stages:
+    - id: 1
+      description: No BGP config - tests fail
+
+    - id: 2
+      description: Correct BGP config - tests pass
+
+When a lesson is loaded in the web front-end, it shows up as a dropdown at the top of the page:
+
+.. image:: /images/labs.png
+   :align: center
+
+While the Stage definition seems simple, there's a lot that goes on when a user navigates between Stages by selecting
+something in that drop-down:
+
+- All Endpoints with a `configurationType` :ref:`configured <toolbox-config>` will be reconfigured accordingly. This happens
+  when a lesson is initially loaded
+- Endpoint health checks as described in :ref:`Endpoint Presentations <toolbox-presentation>` are **not** done between stages.
+  Presentations are static for the whole lesson, regardless of Stage. They're done when the lesson is initially loaded
+- When a stage ID is omitted, the default is to load the first one, but this isn't a requirement for users. Each lesson URL
+  includes a Stage ID, which means hyperlinks to any stage in any lesson are honored. What this means for lesson builders is
+  that while your Stages can (and should) have a natural progression, you should not rely on users to have done something themselves
+  in Stage 1 in order for Stage 2 to work. If you have the user accomplish a task in Stage 2, you should still overwrite all configs
+  yourself to the expected value in Stage 2's configurations.
+
+Each Stage has a particular directory structure that you should be aware of. As with most things involving curriculum resource definition,
+most of this is enforced by ``syrctl`` so you can validate this structure yourself, but here are some general rules:
+
+.. CODE::
+
+    .
+    ├── jsnapy_config.yaml
+    ├── jsnapy_tests.yaml
+    ├── lessondiagram.png
+    ├── lesson.meta.yaml
+    ├── stage1
+    │   ├── configs
+    │   │   ├── vqfx1.txt
+    │   │   ├── vqfx2.txt
+    │   │   └── vqfx3.txt
+    │   └── guide.md
+    └── stage2
+        ├── configs
+        │   ├── vqfx1.txt
+        │   ├── vqfx2.txt
+        │   └── vqfx3.txt
+        └── guide.md
+
+- Each stage must have a corresponding directory called ``stage<N>`` where ``N`` is the stage ID.
+- Each stage directory must have a ``configs`` directory, where all of the files related to :ref:`Endpoint configuration <toolbox-config>`
+  should be kept.
+- Each stage directory must also have either a markdown-based lesson guide, or a jupyter notebook to be used for the same. We'll get into
+  the differences between these in the next few sections.
 
 Lab Guides
-~~~~~~~~~~
+----------
 
 All NRE Labs lessons come with lab guides. These are meant to be something the learner can follow along
 with so they're not spinning your wheels, wondering what to do with a lesson.
@@ -15,8 +79,8 @@ Snippets and Jupyter notebooks
 Adjust antidote-web to link here once this is done.
 
 
-Markdown Lab Guides
-~~~~~~~~~~~~~~~~~~~
+Writing Lab Guides with Markdown
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Many of these guides are written in Markdown, and then rendered as HTML into
 the front-end as a readable guide. While these can contain code snippets that can
@@ -26,50 +90,14 @@ For instance, you may want to execute some code in the left-hand pane where the 
 guide
 is located, while looking at the output of a network device or other entity.
 
-Using Jupyter Notebook Lab Guides
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Writing Lab Guides with Jupyter Notebooks
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. NOTE::
 
-    This section focuses on how to use Jupyter notebooks in a lesson. If you're a lesson author looking to use Jupyter notebooks
-    in your lesson, we'll cover that in the next section.
-
-Jupyter notebooks are a great tool for accomplishing this, as a lesson author is able to put executable code snippets
-right alongside readable text explaining it. To facilitate their use, NRE Labs optionally allows lesson authors to specify a
-jupyter notebook in lieu of a markdown file for use as a lab guide.
-
-If you encounter a jupyter notebook within a lesson, you might be initially overwhelmed with the number of buttons
-and options. Don't worry about that - you really only need to know a few key things.
-
-.. image:: /images/jupyter.png
-
-The above image shows the toolbar for a jupyter notebook. You'll find this immediately below the dropdown selector where you can
-navigate between the labs within a lesson. The main thing you will use here is the "run" button. This is what allows you to
-execute a selected snippet of code. For instance, in the below image, we have a python snippet embedded in the lab guide.
-We've selected it, and can execute the code within using this "run" button:
-
-.. image:: /images/jupyter_selected.png
-
-Depending on the snippet, you might see some output below.
-
-.. image:: /images/jupyter_output.png
-
-Note that you might not get any output. This depends on whether or not the code being executed is meant to produce output,
-and/or how long it takes to process the instruction.
-
-Also note that most jupyter notebooks expect that you'll run all of the snippets in order.
-Not doing this might result in some errors. Just follow the instructions in the lab guide if you get stuck.
-
-Finally, you can edit the contents of a notebook! The text and code provided is just part of the lab, but the
-great thing about jupyter notebooks is that you can play around with them, and download a modified version.
-
-.. image:: /images/jupyter_edit.png
-
-Play around with editing the code provided and running it again! Experiment and learn!
-
-
-Writing Lab Guides using Jupyter Notebooks
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    This section is focused on lesson authors looking to use Jupyter notebooks in the creation of a lesson.
+    If you're looking for an overview of how to **use** lesson guides in Antidote or NRE Labs, go
+    :ref:`here <using-jupyter>`.
 
 Write notebooks on your own, probably. The only difference should be DNS.
 

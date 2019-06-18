@@ -1,16 +1,17 @@
 .. _release-overview:
 
-Antidote Release Overview
-=========================
+Releases
+========
 
 .. toctree::
    :maxdepth: 1
 
-   releaseprocess.rst
+   releaseplanning.rst
+   runningrelease.rst
 
 The Antidote project is composed of three primary Github repositories:
 
-- `Antidote <https://github.com/nre-learning/antidote>`_ - contains infrastructure
+- `Antidote-ops <https://github.com/nre-learning/antidote-ops>`_ - contains infrastructure
   and platform configurations, as well as the codified lesson definitons.
 - `Syringe <https://github.com/nre-learning/syringe>`_ - contains code for the
   back-end orchestrator between Kubernetes and the front-end

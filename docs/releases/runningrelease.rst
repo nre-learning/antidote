@@ -1,7 +1,7 @@
-.. _release-process:
+Running the Release Workflows
+==============================
 
-Antidote Release Process
-================================
+This document is for anyone that is actually doing the work of releasing a new version of Antidote.
 
 .. WARNING::
     

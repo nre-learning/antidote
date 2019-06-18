@@ -81,10 +81,10 @@ built from day one to be multivendor, and not just in the fact we can run the im
 incorporated into the true value of the platform, such as autoconfiguration between labs.
 
 The technical requirement is that the network device is accessible via SSH for terminal access with the
-appropriate credentials and packaged within a docker container. We're already using NAPALM for doing
+appropriate credentials and packaged within a docker container. We're already using very flexible tools for doing
 inter-stage configuration, so we're ready to use other vendor kit from the get-go; it's just a matter
 of getting vendors to contribute their image. Juniper has done this as an early example, but any other
-vendor that is willing to abide by the  :ref:`Code of Practice <code-practice>` is welcome to
+vendor that is willing to abide by the Code of Practice (coming soon) is welcome to
 participate in the project.
 
 In short, we've put the right technical pieces in place to make it possible, now we're working on getting
@@ -107,26 +107,3 @@ to every container that runs in a lesson, so just by having those files in that 
 
 You can also create a docker image that follows the `image` (LINK) standards if you want a more complicated software installation to
 be present.
-
-
-
-
-
-
-
-# David Barosso Questions
-1. is there more detailed documentation somewhere?
-3. if I add a lesson, should I just number it and put it here? github.com/nre-learning/a…
-
-
-
-Things from Dmitri Figol stream to fix
-- Copy/paste from lesson guide
-- Fix random disconnects after idling for a while
-- Copying from robot file out of terminal strips newlines
-- Install browser in utility so you can browse the report
-- Consider disabling right click?
-- Expand grafana iframe
-- unexpected session close
-- order of snippets in lab 2 of st2 lesson
-

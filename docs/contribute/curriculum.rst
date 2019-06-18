@@ -1,5 +1,8 @@
 .. _contrib-curriculum:
 
+.. TODO(mierdin): I didn't really touch this page much when I redid the docs and added the centralized
+.. git page. This page should be redone with that page in mind, probably.
+
 Contributing to the NRE Labs Curriculum
 =======================================
 
@@ -146,5 +149,5 @@ If you are a maintainer or creator for an open source project in the infrastruct
 the Antidote project would love to have you. We feel very strongly that if you're maintaining an open source
 project, that you should have the right of first refusal for representing it in the NRE Labs curriculum.
 
-Please get in touch with us using any of our :ref:`community channels <community>`_ and we'll make every effort
+Please get in touch with us using any of our :ref:`community channels <community>` and we'll make every effort
 to bring you up to speed with the environment so that you can show off your project on the site.
