@@ -10,16 +10,10 @@ In the remainder of this document, we'll outline the types of resources that can
 curriculum, and link to other resources within the Antidote documentation that will help you build, or
 contribute to an existing curriculum.
 
-- Lessons
-- Images
-- Collections
-
-
 .. toctree::
    :maxdepth: 1
 
    lessons/index.rst
-   images.rst
    collections.rst
 
 .. quizzes.rst

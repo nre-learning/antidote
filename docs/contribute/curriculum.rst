@@ -1,10 +1,14 @@
-.. _contrib-lifecycle:
+.. _contrib-curriculum:
 
-The Curriculum Contribution Lifecycle
-=====================================
+.. TODO(mierdin): I didn't really touch this page much when I redid the docs and added the centralized
+.. git page. This page should be redone with that page in mind, probably.
+
+Contributing to the NRE Labs Curriculum
+=======================================
 
 Contributing to the curriculum is fairly straightforward, but you should consider the guidance
-in this document to ensure you spend your time wisely.
+in this document to ensure you spend your time wisely. The last thing we want is for you to dedicate days
+or even weeks of your time to building a lesson only to find out someone is already working on something similar.
 
 .. NOTE::
 
@@ -86,7 +90,7 @@ and start making commits as you add or change lesson content.
 Next - you'll want a local copy of the Antidote stack running locally so you can rapidly test and
 iterate on the changes you've made. Ironing out all of the bugs locally before you submit a pull
 request makes the review process much smoother. For more info, see the
-:ref:`local build <buildlocal>` documentation.
+:ref:`selfmedicate <selfmedicate>` documentation.
 
 Next thing you'll want to bookmark is the documentation on :ref:`curriculum definitions <curricula>`.
 All curriculum resources, such as lessons,  are defined "as-code", meaning they are all defined using simple text files stored in Git.
@@ -134,3 +138,16 @@ of these guidelines, to make the review process much smoother.
 - Can we show this in NRE labs? Usage rights?
 - Does this follow the :ref:`Lesson Image Requirements <lessonimages>`?
 - Is the business benefit clear from this lesson? How easy is it for people to link this content with their day-to-day?
+
+
+.. _contrib-othermaintainers:
+
+Contribute a Lesson for Your Open Source Project!
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+If you are a maintainer or creator for an open source project in the infrastructure or automation space,
+the Antidote project would love to have you. We feel very strongly that if you're maintaining an open source
+project, that you should have the right of first refusal for representing it in the NRE Labs curriculum.
+
+Please get in touch with us using any of our :ref:`community channels <community>` and we'll make every effort
+to bring you up to speed with the environment so that you can show off your project on the site.

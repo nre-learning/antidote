@@ -1,6 +1,6 @@
 .. _curriculum-terminology:
 
-NRE Labs Curriculum Terminology
+Curriculum Terminology
 =======================================
 
 Taxonomy

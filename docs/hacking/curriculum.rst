@@ -1,7 +1,7 @@
-.. _buildlocal:
+.. _selfmedicate:
 
-Selfmedicate - Antidote's Development Environment
-=================================================
+Hacking on the Curriculum
+=========================
 
 If you want to contribute some lessons, you'll probably want to find a way to run them locally
 yourself before opening a pull request. Or maybe you're looking to show some automation demos
@@ -15,7 +15,7 @@ a smaller scale, such as on a laptop, we use "minikube". This is a single-node K
 that is fairly well-automated. This means you can do things like run demos of Antidote lessons
 offline, or use this as your development environment for building new lessons.
 
-The `selfmedicate <https://github.com/nre-learning/antidote-selfmedicate>`_ tool is a set of scripts
+The `antidote-selfmedicate <https://github.com/nre-learning/antidote-selfmedicate>`_ tool is a set of scripts
 that use minikube to deploy a full functioning Antidote deployment on your local machine.
 
 .. warning::
@@ -23,12 +23,11 @@ that use minikube to deploy a full functioning Antidote deployment on your local
     recommend executing these scripts from within a linux virtual machine, or within 
     `Windows WSL <https://docs.microsoft.com/en-us/windows/wsl/faq>`_.
 
-.. warning::
+.. NOTE::
 
-    The ``selfmedicate`` script is designed to make it easy to configure a local minikube environment
-    with everything related to Antidote installed on top. However, you'll always be well-served by
-    becoming familiar with ``minikube`` itself so that you are more able to troubleshoot the environment
-    when things go wrong. Keep a bookmark to the `minikube docs <https://kubernetes.io/docs/setup/minikube/>`_ handy, just in case.
+    This section discusses technical steps for building Antidote locally for the purposes of editing or adding to
+    a curriculum. See :ref:`here <contrib-curriculum>` for instructions on how to contribute your changes or additions
+    to the flagship NRE Labs curriculum.
 
 Install and Configure Prerequisites
 -----------------------------------
@@ -56,15 +55,17 @@ to install, but do not start minikube.  Make sure you install kubectl as well.  
 Preparing the Environment
 -------------------------
 
-You can create a configuration file for selfmedicate, but it is not required.  It should be called "config" and located in directory "$HOME/.selfmedicate"  Not all variables need to be specified.  The following variables are supported:
+You can create a configuration file for selfmedicate, but it is not required.  It should be called "config"
+and located in directory "$HOME/.selfmedicate"  Not all variables need to be specified.  The following variables
+are supported::
 
-CPUS               - The number of CPUs minikube should run on.  (default: 2)
-MEMORY             - The amount of memory in megabytes minikube should run on. (default: 8192)
-VMDRIVER           - The hypervisor minikube should use (default: virtualbox)
-LESSON_DIRECTORY   - The location of the lesson directory.  (default: "../nrelabs-curriculum")
-MINIKUBE           - The path to the 'minikube' command. (default: "minikube", if installed on PATH)
-KUBECTL            - The path to the 'kubectl' command. (default: "kubectl", if installed on PATH)
-PRELOADED_IMAGES   - The list of images to be pre-loaded in advance. (default: "vqfx:snap1 vqfx:snap2 vqfx:snap3 utility")
+    CPUS               - The number of CPUs minikube should run on.  (default: 2)
+    MEMORY             - The amount of memory in megabytes minikube should run on. (default: 8192)
+    VMDRIVER           - The hypervisor minikube should use (default: virtualbox)
+    LESSON_DIRECTORY   - The location of the lesson directory.  (default: "../nrelabs-curriculum")
+    MINIKUBE           - The path to the 'minikube' command. (default: "minikube", if installed on PATH)
+    KUBECTL            - The path to the 'kubectl' command. (default: "kubectl", if installed on PATH)
+    PRELOADED_IMAGES   - The list of images to be pre-loaded in advance. (default: "vqfx:snap1 vqfx:snap2 vqfx:snap3 utility")
 
 Example::
 
@@ -77,22 +78,24 @@ Open a terminal window.  Create, then enter the directory for the selfmedicate e
 
     mkdir ~/antidote-local && cd ~/antidote-local
  
-Before cloning and starting selfmedicate itself, you'll want to fork then clone the nrelabs-curriculum repository.
-Log into github, navigate to the `nrelabs-curriculum <http://github.com/nre-learning/nrelabs-curriculum>`_ repository. 
-Click "Fork" in the upper-right portion of the browser window, and select your username as the fork location.
-Navigate to your forked repository, then click the green "Clone or Download" button.  Copy the URL to clipboard.
-In the terminal window, clone this forked repository:
+Next, if you're working with the development environment, you also may be looking to contribute to the NRE Labs
+curriculum. If so, follow the :ref:`Antidote Git instructions <antidote-git>` to fork and clone the
+`nrelabs-curriculum <http://github.com/nre-learning/nrelabs-curriculum>`_ repository to this directory. Not only
+is this required for this development environment to work (it needs a curriculum to run), it also sets you up
+to contribute to the curriculum later.
 
-    git clone https://github.com/< YOUR GITHUB USERNAME >/nrelabs-curriculum
+Next, all of the scripts and kubernetes manifests for running Antidote within minikube are located in the
+`antidote-selfmedicate <https://github.com/nre-learning/antidote-selfmedicate>`_ repository. Simply clone
+and enter this repository::
 
-All of the scripts and kubernetes manifests for running Antidote within minikube are located in the
-`antidote-selfmedicate <https://github.com/nre-learning/antidote-selfmedicate>`_ repository.  **Please remember** that
-changes are being made to this repository all the time. If you encounter issues, the very first thing you should try before
-you open an issue is to make sure you have the latest copy of this repository by doing a ``git pull`` on the master branch.
+    cd ~/antidote-local && git clone https://github.com/nre-learning/antidote-selfmedicate && cd antidote-selfmedicate
 
-Clone and enter this repository::
+.. WARNING::
 
-    git clone https://github.com/nre-learning/antidote-selfmedicate && cd antidote-selfmedicate
+    **Please remember** that changes are being made to this repository all the time. If you encounter issues,
+    the very first thing you should try before you open an issue is to make sure you have the latest copy of
+    this repository by doing a ``git pull`` on the master branch.
+
 
 Starting Self-Medicate
 ----------------------
@@ -189,17 +192,26 @@ To resume, run:
 
     ./selfmedicate.sh resume
 
-The ``resume`` command is important to run, since this re-executes minikube with the optional arguments needed by Antidote,
-so make sure to use this, rather than trying to use ``minikube start`` directly.
+The ``resume`` command is important to run, since this re-executes minikube with the optional arguments needed
+by Antidote, so make sure to use this, rather than trying to use ``minikube start`` directly.
 
 Troubleshooting Self-Medicate
 -----------------------------
 
-The vast majority of all setup activities are performed by the ``selfmedicate`` script. The idea is that this script shoulders
-the burden of downloading all the appropriate software and building is so that you can quickly get to focusing on lesson content.
+The vast majority of all setup activities are performed by the ``selfmedicate`` script. The idea is that this
+script shoulders the burden of downloading all the appropriate software and building is so that you can
+quickly get to focusing on lesson content.
 
-However, issues can still happen. This section is meant to direct you towards the right next steps should something go wrong and
-you need to intervene directly.
+However, issues can still happen. This section is meant to direct you towards the right next steps should
+something go wrong and you need to intervene directly.
+
+.. warning::
+
+    The ``selfmedicate`` script is designed to make it easy to configure a local minikube environment
+    with everything related to Antidote installed on top. However, you'll always be well-served by
+    becoming familiar with ``minikube`` or even Kubernetes itself so that you are more able to troubleshoot
+    the environment when things go wrong. Keep a bookmark to the
+    `minikube docs <https://kubernetes.io/docs/setup/minikube/>`_ handy, just in case.
 
 .. note::
 
@@ -219,9 +231,8 @@ It's likely that the pods for running the Antidote platform aren't running yet. 
     nginx-ingress-controller-694479667b-v64sm   1/1     Running   0          12d
     syringe-fbc65bdf5-zf4l4                     1/1     Running   4          12d
 
-You should see something similar to the above. The exact pod names will be different, but you should see the same numbers under
-the ``READY`` column, and all entries under the ``STATUS`` column should read ``Running`` as above.
-
+You should see something similar to the above. The exact pod names will be different, but you should see the same
+numbers under the ``READY`` column, and all entries under the ``STATUS`` column should read ``Running`` as above.
 
 In some cases the ``STATUS`` column may read ``ContainerCreating``. In this case, it's likely that the images for each pod
 is still being downloaded to your machine. You can verify this by "describing" the pod that's not ``Ready`` yet:

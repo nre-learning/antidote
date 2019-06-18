@@ -1,142 +1,81 @@
-.. _toolbox-endpoints:
-
-Lesson Endpoints
+Endpoints
 ============================
 
-"Endpoint" is the generic term used in the Antidote project to describe the various pieces of software
-you'll need to use in a given lesson in order to teach a particular subject. This include virtual routers
-and switches, of course, but they can also include simple linux containers to run a script.
+A foundational concept within Antidote is the ability to run the software or appliances needed
+to educate the learner about a particular topic. It's nice to have lesson guides that walk
+through a concept, but the whole point of the Antidote project was to provide that ease of use
+without sacrificing any of the interactivity that comes with being able to play with the tech directly.
 
-Within the context of the Antidote platform, there are a few types of Endpoints that you, the
-lesson author should be aware of. Knowing the intention behind, and the capabilities of, each endpoint
-type, is crucial to being able to
+Antidote offers the concept of "Endpoints" to accomplish this. At its core, an Endpoint is simply a
+Docker container that is built to run some software. This could be a simple Bash/CLI environment,
+it could be a web server, or even a full-blown network device. Bottom line, if you want the user
+to interact with something in your lesson, you need Endpoints.
 
-.. WARNING::
-
-    While these endpoint types are mostly thought to be fairly stable, how they're configured within a lesson
-    definition is subject to change. Please revisit this page, and the :ref:`lesson definition <lessons>`
-    page for the most up-to-date information possible.
-
-The concept of an "Endpoint" is an abstraction within the Antidote infrastructure, but the actual runtime
-for making endpoints real is Kubernetes. This is why Syringe communicates directly with the Kubernetes
-API for instantiating containers. Endpoints are really just containers being executed in Kubernetes
-in various ways. As a result, you'll often see the ``image`` field in an endpoint definition. This is
-literally a docker image, such as a full docker hub repository, like ``antidotelabs/vqfx``.
-
-Generally, endpoints are configured within the main :ref:`lesson definition <lessons>` file, ``syringe.yaml``,
-which can be found at the root of any lesson directory. Declaring these endpoints in a lesson definition is
-usually very simple - often only a name and a reference to the docker hub image is needed. However,
-the way that Syringe will handle the endpoint will differ greatly between the various endpoint types.
-
-Currently, there are three endpoint types:
-
-* Utility
-* Device
-* Blackbox
-
-Each endpoint type is handled differently with respect to how it is accessed, how it's determined to be
-healty, and if applicable, how it's automatically configured during a lesson. All of this will be defined
-below.
-
-Utility
-^^^^^^^
-
-The ``utility`` is the simplest way to present something to the user in Antidote. An endpoint
-of this type will be presented in the web front-end as a terminal tab. As a result, the endpoint
-must be accessible via SSH. See the table below for details.
-
-A sample configuration (found in a :ref:`lesson definition <lessons>`) is below:
+Generally, Endpoints are configured within the :ref:`lesson definition <lessons>` file, ``lesson.meta.yaml``,
+which can be found at the root of any lesson directory. Within this file, Endpoints are declared under the
+``endpoints`` key, like so:
 
 .. CODE:: yaml
 
-  utilities:
+  endpoints:
   - name: linux1
     image: antidotelabs/utility
+    presentations:
+    - name: cli
+      port: 22
+      type: ssh
 
-+----------------------+---------------------------------------------------+
-|  Endpoint Attribute  |            Detail                                 |
-+======================+===================================================+
-| Health Check         |  SSH-based. Endpoints must be reachable via port  |
-|                      |  22, and authenticate with                        |
-|                      |  antidote/antidotepassword                        |
-+----------------------+---------------------------------------------------+
-| Autoconfiguration    |  No autoconfiguration (yet)                       |
-+----------------------+---------------------------------------------------+
-| Default Ports        |  Port 22 is opened by default. Lesson authors can |
-|                      |  specify additional ports.                        |
-+----------------------+---------------------------------------------------+
-
-Device
-^^^^^^
-
-The ``device`` endpoint type is ideal for running network devices like routers and switches. It's
-very similar to the ``utility`` type, with one major difference - how it's automatically
-configured (see table below). It also requires SSH connectivity and has the same default port
-configuration as a ``utility``. It is also represented as a terminal tab in the web UI.
-
-A sample configuration (found in a :ref:`lesson definition <lessons>`) is below:
-
-.. CODE:: yaml
-
-  devices:
   - name: vqfx1
     image: antidotelabs/vqfx:snap1
-  - name: vqfx2
-    image: antidotelabs/vqfx:snap2
-  - name: vqfx3
-    image: antidotelabs/vqfx:snap3
+    configurationType: napalm-junos
+    presentations:
+    - name: cli
+      port: 22
+      type: ssh
+    additionalPorts: [830]
 
-+----------------------+---------------------------------------------------+
-|  Endpoint Attribute  |            Detail                                 |
-+======================+===================================================+
-| Health Check         |  SSH-based. Endpoints must be reachable via port  |
-|                      |  22, and authenticate with                        |
-|                      |  antidote/antidotepassword                        |
-+----------------------+---------------------------------------------------+
-| Autoconfiguration    |  :ref:`Autoconfiguration <toolbox-autoconfig>`    |
-|                      |  is done via NAPALM.                              |
-+----------------------+---------------------------------------------------+
-| Default Ports        |  Port 22 is opened by default. Lesson authors can |
-|                      |  specify additional ports.                        |
-+----------------------+---------------------------------------------------+
+A few points about the above:
 
-Blackbox
-^^^^^^^^
+- The ``name`` field is up to you to define - you can call each endpoint whatever you want, provided all endpoints
+  have a unique name.
+- The ``image`` field is a DockerHub-compatible image reference, which is passed directly to the underlying Kubernetes
+  infrastructure to run your image. :ref:`See here for more information on images <lessonimages>`.
+- The ``configurationType`` field is optional, and allows you to specify what kind of automatic
+  configuration should be done for this endpoint. :ref:`See here for more information on endpoint configuration <toolbox-config>`.
+- The ``presentations`` field is also optional, and allows you to specify ways that this endpoint should be presented to
+  the user. This could be a CLI terminal, or even a web application with it's own tab.
+  :ref:`See here for more information on endpoint presentations <toolbox-presentation>`.
+- The ``additionalPorts`` field allows you to specify any additional ports that should be opened for this endpoint.
+  By default, only the ports listed in a ``presentation`` are opened. So, this field allows you to directly specify
+  ports that should be opened regardless of the presentations that are configured.
 
-Often, lesson authors need a piece of software running within a lesson environment, but don't
-need (or even want) it to be shown to the user. For instance, you may have a ``utility`` endpoint
-where the learner can execute a Python script to call some kind of API, but you need
-another endpoint that actually serves up that API. You only need the first endpoint to show anything
-to the user, but you need both running in parallel.
 
-The ``blackbox`` type is ideal for this. It allows you to define an endpoint that is instantiated in the
-lesson environment like any other endpoint, but no presentation to the learner is made.
+Health Checks
+~~~~~~~~~~~~~
 
-Since it's not clear how you might want to access this endpoint, no default ports are provided, and
-healthchecks are TCP-based, instead of full SSH-authentication checks (see table below).
+In order to know if a lesson is running, Syringe will perform health checks on endpoints based on each endpoint's configured
+``presentations`` field. By default, for every Presentation, Syringe will perform a basic TCP connection periodically
+as a heartbeat to ensure that these presentations are accessible. This means that each endpoint must be able to provide connectivity
+on every port opened by a Presentation.
 
-A sample configuration (found in a :ref:`lesson definition <lessons>`) is below. In this example,
-a ``blackbox`` endpoint that runs an IP PBX is configured alongside a ``utility`` image that runs
-a soft phone client that the learner uses to register to the PBX:
+Some endpoints may not have any Presentations - in this case, the ``additionalPorts`` field is required, and must have at least one port
+configured. Syringe will then use the first port in this list to perform a health check, and will mark the endpoint as healthy.
 
-.. CODE:: yaml
+Once all endpoints are viewed as healthy, based on these health checks, the lesson will move into the configuration stage, or if no configuration
+is necessary, will move directly into the Ready state, so that the web front-end can start offering the content to the learner.
 
-  blackboxes:
-  - name: asterisk
-    image: antidotelabs/asterisk
-    ports: [8088]
-    
-  utilities:
-  - name: sipphone
-    image: antidotelabs/pjsua-lindsey
+Endpoint Environment Variables
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-+----------------------+-----------------------------------------------------+
-|  Endpoint Attribute  |            Detail                                   |
-+======================+=====================================================+
-| Health Check         |  Basic TCP probes based on defined open ports       |
-+----------------------+-----------------------------------------------------+
-| Autoconfiguration    |  No autoconfiguration.                              |
-+----------------------+-----------------------------------------------------+
-| Default Ports        |  No default ports. Lesson authors must explicitly   |
-|                      |  specify a list of ports to open. See example above |
-+----------------------+-----------------------------------------------------+ 
+Syringe, which performs back-end orchestration for the Antidote platform, maintains a significant amount of context for each lesson.
+Sometimes, endpoints need to be made aware of some of this context in order to properly show their content. A good example of this is a webserver
+that needs to offer it's content at a specific application root based on the way that HTTP-based presentations work.
+In this case, the Endpoint running that webserver would need to know the appropriate path that Syringe is wiring up for it.
+
+To convey this detail, as well as others, all Endpoint containers/pods will be started with some environment variables. They are listed below:
+
+======================================  ============================================================
+SYRINGE_FULL_REF                          The full reference for an Endpoint, which is lesson id plus session
+                                          ID plus endpoint name. (e.g. ``31-51fd1922sq55loah-ns-vqfx3``)
+======================================  ============================================================
+

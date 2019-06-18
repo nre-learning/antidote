@@ -12,9 +12,8 @@ Introduction to Antidote
    :caption: Contents:
 
    platform/index.rst
-   building/building.rst
-   contribute-nrelabs/index.rst
-   contribute-antidote/index.rst
+   hacking/index.rst
+   contribute/index.rst
    releases/index.rst
    community.rst
 
@@ -27,11 +26,11 @@ The Antidote project is composed of a set of open source software applications
 that work together to provide this learning experience. 
 The `antidote-selfmedicate <https://github.com/nre-learning/antidote-selfmedicate>`_ repository is the simplest way to get this going, as it's,
 designed to allow you to run everything on your laptop, using `minikube`. This is very useful if you're looking to develop some lessons
-and need an easy way to test them out without a lot of setup. See the :ref:`build local <buildlocal>` instructions for more info on that.
+and need an easy way to test them out without a lot of setup. See the :ref:`selfmedicate <selfmedicate>` instructions for more info on that.
 
-In case you're looking to run Antidote in more of a public-facing, production capacity, the main `Antidote
-repository <https://github.com/nre-learning/antidote>`_ contains terraform configurations, kubernetes manifests,
-and scripts necessary for running all of Antidote's components in the cloud. More information for spinning this up can be found in the :ref:`production <production>` guide.
+In case you're looking to run Antidote in more of a public-facing, production capacity, the `antidote-ops
+repository <https://github.com/nre-learning/antidote-ops>`_ contains terraform configurations, kubernetes manifests,
+and scripts necessary for running all of Antidote's components in the cloud.
 
 In fact, the reference runtime and use case for Antidote is
 :ref:`NRE Labs <contrib-curriculum>` and Antidote is the project behind it. NRE Labs is
@@ -52,4 +51,3 @@ your own environments.
 
 :ref:`Contributions <contrib-curriculum>` are welcome.
 
-*Please note that NRE Labs is currently in limited tech preview.*
