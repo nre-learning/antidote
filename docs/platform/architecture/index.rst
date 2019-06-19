@@ -55,7 +55,27 @@ There are two main constraints we need to solve before moving into something lik
   used for GKE, but it's not clear how well-supported this is. This warrants further exploration.
 - The current networking model uses a CNI plugin to make the lesson networking work. All of the existing
   hosted kubernetes options from the major cloud providers have rather strict networking models and don't let you bring your own CNI plugin.
-  See the below section on Lesson Networking for more.
+  See the below section on `Lesson Networking`_ for more.
+
+Lesson Resources
+===================
+
+Lesson resources will be started over the infrastructure for each
+connected learner in parallel, isolated, according to the lesson
+specification.
+
+Lesson resources will typically be inter-networked Kubernetes PODs
+(containers) which will be available for each learner.
+
+In the following figure, the platform runs the same example lesson for
+2 learners in parallel. Each lesson instance contains 2 resources
+(`vqfx1` and `linux1`), running inside their own Kubernetes
+"namespaces". A learner learner may then interact with the resources
+as dedicated virtual machines, using Web consoles connected via SSH
+to the right resources.
+
+.. image:: /images/lessons_hla.png
+
 
 Lesson Networking
 ^^^^^^^^^^^^^^^^^
