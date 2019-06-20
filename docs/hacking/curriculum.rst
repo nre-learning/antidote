@@ -11,7 +11,7 @@ you, you've come to the right place.
 The antidote project is meant to run on top of Kubernetes. Not only does this provide a suitable
 deployment environment for the Antidote platform itself, it also allows us to easily spin up additional
 compute resources for running the lessons themselves. To replicate the production environment at
-a smaller scale, such as on a laptop, we use "minikube". This is a single-node Kubernetes cluster
+a smaller scale, such as on a laptop, we use "`minikube <https://github.com/kubernetes/minikube>`_". This is a single-node Kubernetes cluster
 that is fairly well-automated. This means you can do things like run demos of Antidote lessons
 offline, or use this as your development environment for building new lessons.
 
@@ -25,7 +25,7 @@ that use minikube to deploy a full functioning Antidote deployment on your local
 
 .. NOTE::
 
-    This section discusses technical steps for building Antidote locally for the purposes of editing or adding to
+    This section discusses technical steps for running Antidote locally for the purposes of editing or adding to
     a curriculum. See :ref:`here <contrib-curriculum>` for instructions on how to contribute your changes or additions
     to the flagship NRE Labs curriculum.
 
@@ -74,6 +74,15 @@ Example::
     VMDRIVER=kvm2
     LESSON_DIRECTORY="$HOME/projects/nrelabs-curriculum"
 
+.. NOTE::
+
+   Minikube's `kvm2 VM driver
+   <https://github.com/kubernetes/minikube/blob/master/docs/drivers.md#kvm2-driver>`_
+   (set in VMDRIVER in the example above) is also supported when on
+   Linux. It allows Minikube to run Kubernetes inside a qemu+kvm VM,
+   which should offer better performance on Linux machines provided
+   they support nested virtualization.
+    
 Open a terminal window.  Create, then enter the directory for the selfmedicate environment and curriculum lessons::
 
     mkdir ~/antidote-local && cd ~/antidote-local
@@ -131,7 +140,8 @@ accomplished by the ``selfmedicate`` script in this stage is as follows:
 2. Once a basic Kubernetes cluster is online, some additional infrastructure elements are installed. These
    include things like Multus and Weave, to enable the advanced networking needed by lessons.
 3. Platform elements like ``syringe`` and ``antidote-web`` are installed onto the minikube instance.
-4. Common and large images, like the ``vqfx`` and ``utility`` images are pre-emptively downloaded to the
+4. Common and large images, like the ``vqfx`` and ``utility`` images
+   (specified in ``PRELOADED_IMAGES``) are pre-emptively downloaded to the
    minikube instance, so that you don't have to wait for these to download when you try to spin up a lesson.
 5. Once all the above is done, the script will ask for your sudo password so it can automatically add an entry
    to ``/etc/hosts`` for you. Once this is done, you should be able to access the environment at the URL
@@ -273,7 +283,7 @@ can tell you if a given pod is still downloading an image.
 We can also use the ``minikube ssh`` command to send commands into the minikube VM and see the results. For instance, to
 check the list of docker images that have been successfully pulled:
 
-.. note::
+.. code::
 
     minikube ssh docker image list
 

@@ -1,6 +1,8 @@
 Hacking on Antidote
 ===================
 
+This section is meant for people interested in developping on Antidote.
+
 .. toctree::
    :maxdepth: 1
 
