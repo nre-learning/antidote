@@ -3,7 +3,7 @@
 Endpoint Images
 ===================================
 
-Antidote, and all of the lessons that it manages, runs on Kubernetes As a result, all lesson
+Antidote, and all of the lessons that it manages, runs on Kubernetes. As a result, all lesson
 :ref:`endpoints <endpoints>`, including network devices, are executed from prebuilt
 Docker images. This means that if you have a particular piece of software you wish to show,
 you may need to build your own Docker image that's compatible with Antidote. As the default for Antidote
@@ -47,7 +47,7 @@ There are some "common" images you might consider using before building your own
 
 ``utility``
   ===========  =================================================================
-  **Usage:**   ``image: antidotelabs/vqfxspeedy:<snap1, snap2, or snap3>``
+  **Usage:**   ``image: antidotelabs/utility``
   **Source:**  https://github.com/nre-learning/nrelabs-curriculum/tree/master/images/utility
   ===========  =================================================================
 

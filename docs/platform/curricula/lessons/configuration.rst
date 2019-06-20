@@ -48,7 +48,9 @@ NAPALM
   but based on the stage being viewed, the configuration might need to change. This is a very common scenario.
 
   Rather than write a custom Python script or Ansible playbook to simply load a config onto a network device,
-  you can use the NAPALM configuration option shown here.
+  you can use the NAPALM (`Network Automation and Programmability
+  Abstraction Layer with Multivendor support
+  <https://github.com/napalm-automation/napalm>`_) configuration option shown here.
 
   To use this option, you need to specify a specially formatted ``configurationType`` value. This configuration option uses
   the ``napalm-<driver>`` syntax, where ``<driver>`` is the name of the `NAPALM driver <https://napalm.readthedocs.io/en/latest/support/#general-support-matrix>`_
