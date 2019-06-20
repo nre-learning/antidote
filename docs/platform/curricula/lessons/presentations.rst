@@ -87,9 +87,10 @@ field that you should be aware of.
 SSH
   **Usage:** ``type: ssh``
 
-    This one is pretty straightforward. A very common use case for showing Endpoints is to provide
-    an interactive CLI terminal in the Antidote front-end. This is accomplished by connecting directly
-    to the Endpoint via SSH, and using that connection to provide the experience to the web.
+    This one is pretty straightforward. A very common use case for interacting with Endpoints is to provide
+    an interactive CLI (Command Line Interface) terminal in the Antidote front-end. This is accomplished by connecting directly
+    to the Endpoint via SSH, and using that connection to provide the experience to the web. Under the hood,
+    the front-end uses Guacamole's SSH tunnel and Web console.
 
     As long as your Endpoint is configured to listen on the port you specify in the Presentation for SSH
     connections with the username ``antidote`` and ``antidotepassword``, Antidote will take care of
@@ -103,7 +104,7 @@ HTTP
     Endpoints on the back-end.
 
     In this case, the ``http`` type can be used. A tab will be opened for this Presentation, but instead of a
-    terminal, the tab contents will show the web application you provide in the Endpoint. A few considerations
+    terminal, the tab contents will show the web application you provide in the Endpoint (in an iframe). A few considerations
     for this option:
 
     - HTTPS is not currently supported. We need to iron out a few wrinkles in the implementation first, and we'll
@@ -114,4 +115,8 @@ HTTP
       value as the application root.
 
 VNC
-  Not currently supported - coming soon!
+  Not currently supported - `coming soon <https://github.com/nre-learning/antidote-web/issues/65>`_!
+
+  When this is implemented, it will use Guacamole's Web VNC client to
+  provide access, in the tab, to a graphical connection to a desktop
+  displaying GUI applications running on the Endpoint.
