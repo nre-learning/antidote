@@ -56,7 +56,7 @@ Preparing the Environment
 -------------------------
 
 You can create a configuration file for selfmedicate, but it is not required.  It should be called "config"
-and located in directory "$HOME/.selfmedicate"  Not all variables need to be specified.  The following variables
+and located in directory "$HOME/.antidote/"  Not all variables need to be specified.  The following variables
 are supported::
 
     CPUS               - The number of CPUs minikube should run on.  (default: 2)
