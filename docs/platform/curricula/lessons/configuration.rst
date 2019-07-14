@@ -9,8 +9,13 @@ of this is the ability to automatically configure all lesson endpoints to fit th
 teach a concept, so that when the learner is ready to take on a subject, they aren't distracted by fiddling
 with configurations to "prep" the lesson.
 
-Endpoints are individually configured on a per-stage basis, and the Antidote platform provides several
-mechanisms for accomplishing this, so lesson builders have Options
+Much of this advantage is gleaned from the fact that all Endpoints are started from Docker images, which
+are cryptographically guaranteed to start the same way each time. All Endpoint software dependencies,
+configurations, scripts, etc. are built right into the image. However, it's not always possible to put
+**everything** into this image at build time. For instance, a network device can be built as a Docker
+image, but depending on the Lesson or Stage, might have wildly different configurations, in order to
+teach a particular concept. For this, Antidote offers the ability to configure Endpoints dynamically once
+they're started from their base image.
 
 .. NOTE::
     Don't overdo it with endpoint configuration. The fact that Antidote is powered by containers which
@@ -18,9 +23,13 @@ mechanisms for accomplishing this, so lesson builders have Options
     it's useful to bake configurations into the container image wherever possible. So, use the configuration
     options below, but in proper balance with an already fairly functional base image configuration.
 
-Antidote will spin up one configuration pod per lesson endpoint to perform the relevant
-configuration steps, and will populate those pods with a few useful environment variables that can be consumed
-by the configuration scripts defined by the lesson author. They are described below:
+
+To accomplish this configuration, the Antidote project maintains a ``configurator`` image, which has all of the necessary
+prerequisites for performing Endpoint configuration. When Antidote needs to perform a configuration for lesson Endpoints,
+such as when a lesson is initially loaded, or when the user is navigating to a new Stage, Antidote will spin up one
+configuration pod per lesson endpoint to perform the relevant configuration steps, and will populate those pods
+with a few useful environment variables that can be consumed by the configuration scripts defined by the lesson
+author. They are described below:
 
 ======================================  ============================================================
 SYRINGE_TARGET_HOST                     Set to the IP address of the endpoint. Useful because this is always dynamic.
@@ -33,6 +42,9 @@ repository, and is what's used as the runtime environment for all configuration 
 are limited to what's been installed in this image. So, if you wish to use a Python library or Ansible module
 that's not present, you may be able to add it to this image. If widely applicable enough, we'll consider adding
 it for everyone.
+
+Endpoints are individually configured on a per-stage basis, and the Antidote platform provides several
+mechanisms for accomplishing this, so lesson builders have options when it comes to configuring their Endpoints.
 
 Specifying which configuration type you want to use for your endpoint is fairly straightforward, but there are
 some underlying implications you should be aware of for each option, which we'll explain below.
