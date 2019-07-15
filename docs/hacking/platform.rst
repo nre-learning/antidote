@@ -36,7 +36,7 @@ Hacking on Syringe
     This section discusses technical steps for building Syringe yourself when working on the code. See
     :ref:`here <contrib-platform>` for instructions on how to contribute your changes back to the project.
 
-Syringe is mainly an application written in Go providing a Web API.
+Syringe is mainly an application written in Go which provides orchestration for lesson resources on Kubernetes, while providing an API for the web front-end to consume.
          
 Detailed instructions are WIP - coming soon! In the meantime, just know there is a Makefile in this repository
 and you can run ``make docker`` to rebuild the Docker container for Syringe, or simply ``make`` to compile from
