@@ -90,7 +90,7 @@ SSH
     This one is pretty straightforward. A very common use case for interacting with Endpoints is to provide
     an interactive CLI (Command Line Interface) terminal in the Antidote front-end. This is accomplished by connecting directly
     to the Endpoint via SSH, and using that connection to provide the experience to the web. Under the hood,
-    the front-end uses Guacamole's SSH tunnel and Web console.
+    the front-end uses Guacamole's SSH tunneling capabilities.
 
     As long as your Endpoint is configured to listen on the port you specify in the Presentation for SSH
     connections with the username ``antidote`` and ``antidotepassword``, Antidote will take care of
