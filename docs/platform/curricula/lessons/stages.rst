@@ -29,7 +29,7 @@ When a lesson is loaded in the web front-end, it shows up as a dropdown at the t
 While the Stage definition seems simple, there's a lot that goes on when a user navigates between Stages by selecting
 something in that drop-down:
 
-- All Endpoints with a `configurationType` :ref:`configured <toolbox-config>` will be reconfigured accordingly. This happens
+- All Endpoints with a configured :ref:`configurationType <toolbox-config>`  will be reconfigured accordingly. This happens
   when a lesson is initially loaded
 - Endpoint health checks as described in :ref:`Endpoint Presentations <toolbox-presentation>` are **not** done between stages.
   Presentations are static for the whole lesson, regardless of Stage. They're done when the lesson is initially loaded
@@ -71,12 +71,12 @@ most of this is enforced by ``syrctl`` so you can validate this structure yourse
 Lab Guides
 ----------
 
-All NRE Labs lessons come with lab guides. These are meant to be something the learner can follow along
+All NRE Labs lessons come with lab guides. These are meant to be instructions the learner can follow along
 with so they're not spinning your wheels, wondering what to do with a lesson. It is also meant to include snippets of code or
 commands for them to execute, or have executed for them. There are two options for lesson guides in Antidote today:
 
-- Markdown
-- Jupyter Notebooks
+- :ref:`Markdown <Writing Lab Guides with Markdown>`
+- :ref:`Jupyter Notebooks <Writing Lab Guides with Jupyter Notebooks>`
 
 You can choose either of these options **on a per-stage basis**. This means that Stage 1 can have a Markdown lesson guide,
 Stage 2 a Jupyter notebook, and Stage 3 back to Markdown, if you want. The
@@ -157,7 +157,7 @@ Do this:
 These are rendered exactly the same way in the lesson guide, but the latter is interpreted much more literally
 when being pasted into the terminal window, meaning the extra newline is executed like any other character.
 
-Finally, when you have a lesson guide ready. place it in the stage directory as ``guide.md``. This is where the Antidote platform will
+Finally, when you have a lesson guide ready, place it in the stage directory as ``guide.md``. This is where the Antidote platform will
 look for this lesson guide.
 
 Writing Lab Guides with Jupyter Notebooks
