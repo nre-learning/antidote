@@ -203,7 +203,7 @@ Markdown format for stage 3:
       jupyterLabGuide: true
 
 When you do this, you will need to make sure that a jupyter notebook titled ``notebook.ipynb`` is in all relevant stage directories.
-This obviates the need for a ``guide.md` file.
+This obviates the need for a ``guide.md`` file.
 
 If you're starting from scratch and wish to write a Jupyter notebook, your best bet is to follow an
 `online Jupyter notebook tutorial <https://www.codecademy.com/articles/how-to-use-jupyter-notebooks>`_ to get it started. Or you can
