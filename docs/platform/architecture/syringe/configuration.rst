@@ -15,8 +15,8 @@ way to pass these to Syringe is directly in the ``Pod`` or ``Deployment`` defini
       image: antidotelabs/syringe:latest
       imagePullPolicy: Always
       env:
-      - name: SYRINGE_LESSONS
-        value: "/antidote/lessons"
+      - name: SYRINGE_CURRICULUM
+        value: "/antidote"
       - name: SYRINGE_DOMAIN
         value: "localhost"
 
@@ -32,7 +32,7 @@ See the table below for a description of each, as well as information on which a
 +-------------------------------+-----------+--------------------------------------------------------+------------------------------------------------------------------------------------------------------------------+
 | Variable Name                 | Required? | Default Value                                          | Description                                                                                                      |
 +===============================+===========+========================================================+==================================================================================================================+
-| SYRINGE_LESSONS               | Yes       | N/A                                                    | Directory where the lessons are stored                                                                           |
+| SYRINGE_CURRICULUM            | Yes       | N/A                                                    | Directory where the curriculum is stored                                                                         |
 +-------------------------------+-----------+--------------------------------------------------------+------------------------------------------------------------------------------------------------------------------+
 | SYRINGE_DOMAIN                | Yes       | N/A                                                    | Domain where Antidote-web is running. Used to control ingress routing                                            |
 +-------------------------------+-----------+--------------------------------------------------------+------------------------------------------------------------------------------------------------------------------+
@@ -42,9 +42,19 @@ See the table below for a description of each, as well as information on which a
 +-------------------------------+-----------+--------------------------------------------------------+------------------------------------------------------------------------------------------------------------------+
 | SYRINGE_TIER                  | No        | local                                                  | Controls which lessons Syringe makes available based on lesson metadata. Can be ``local``, ``ptr``, or ``prod``. |
 +-------------------------------+-----------+--------------------------------------------------------+------------------------------------------------------------------------------------------------------------------+
+| SYRINGE_CURRICULUM_LOCAL      | No        | false                                                  | Specify if the curriculum should be pulled from the local filesystem, bypassing the need to clone a repository.  |
++-------------------------------+-----------+--------------------------------------------------------+------------------------------------------------------------------------------------------------------------------+
 | SYRINGE_LESSON_REPO_REMOTE    | No        | https://github.com/nre-learning/nrelabs-curriculum.git | Git repo from which to clone lessons into lesson endpoint pods                                                   |
 +-------------------------------+-----------+--------------------------------------------------------+------------------------------------------------------------------------------------------------------------------+
 | SYRINGE_LESSON_REPO_BRANCH    | No        | master                                                 | Git branch to use in lesson endpoint pods                                                                        |
 +-------------------------------+-----------+--------------------------------------------------------+------------------------------------------------------------------------------------------------------------------+
-| SYRINGE_LESSON_REPO_DIR       | No        | /antidote                                              | Destination directory to use when cloning into lesson endpoint pods                                              |
+| SYRINGE_LIVELESSON_TTL        | No        | 30                                                     | The length of time (in minutes) a lesson is allowed to remain active before it is shut down.                     |
++-------------------------------+-----------+--------------------------------------------------------+------------------------------------------------------------------------------------------------------------------+
+| SYRINGE_INFLUXDB_URL          | No        | https://influxdb.networkreliability.engineering/       | The URL for the influxdb metrics server                                                                          |
++-------------------------------+-----------+--------------------------------------------------------+------------------------------------------------------------------------------------------------------------------+
+| SYRINGE_INFLUXDB_USERNAME     | No        | admin                                                  | The username for the influxdb metrics server                                                                     |
++-------------------------------+-----------+--------------------------------------------------------+------------------------------------------------------------------------------------------------------------------+
+| SYRINGE_INFLUXDB_PASSWORD     | No        | zerocool                                               | The password for the influxdb metrics server                                                                     |
++-------------------------------+-----------+--------------------------------------------------------+------------------------------------------------------------------------------------------------------------------+
+| SYRINGE_ALLOW_EGRESS          | No        | false                                                  | Destination directory to use when cloning into lesson endpoint pods                                              |
 +-------------------------------+-----------+--------------------------------------------------------+------------------------------------------------------------------------------------------------------------------+
