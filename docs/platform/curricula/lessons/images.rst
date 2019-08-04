@@ -59,29 +59,31 @@ There are some "common" images you might consider using before building your own
     Generally if you're looking to show something using a Linux CLI, and the "thing" you want to show is either easily
     added to this image, or shown via files in the lesson directory, this image will be a good fit.
 
-``vqfxspeedy``
+``vqfx-snap<X>``
   ===========  =================================================================
-  **Usage:**   ``image: antidotelabs/vqfxspeedy:<snap1, snap2, or snap3>``
-  **Source:**  https://github.com/nre-learning/nrelabs-curriculum/tree/master/images/vqfxspeedy
-  ===========  =================================================================
-
-  The first network device image in the NRE Labs curriculum, ``vqfxspeedy`` takes some shortcuts in order to boot quickly.
-  You can use up to three of these in a lesson, currently, due to the way that snapshotting affects MAC address changes
-  at the QEMU level. (In short, it doesn't work). So we created three snapshots as docker tags ``snap1``, ``snap2``,
-  and ``snap3``.
-
-  A quick and easy image to use if you just need some kind of network device to target lesson learning against.
-
-``vqfx-full``
-  ===========  =================================================================
-  **Usage:**   ``image: antidotelabs/vqfx-full:18.1R1.9``
-  **Source:**  https://github.com/nre-learning/nrelabs-curriculum/tree/master/images/container-vqfx
+  **Usage:**   ``image: antidotelabs/vqfx-snap1``
+  **Source:**  https://github.com/nre-learning/nrelabs-curriculum/tree/master/images/vqfx
   ===========  =================================================================
 
-  For a vQFX experience without any of the shortcuts, and with full linecard emulation, this is the image for you.
-  **NOTE** that this image will take quite a long time to boot - on the order of ten or more minutes depending on the
-  underlying hardware and how many layers of nested virtualization are in play. In general, if you need to use this,
-  you know it. If you're not sure, try ``vqfxspeedy``, or contribute an alternative network image.
+  The ``vqfx-snap1`` image takes some shortcuts in order to boot quickly. A QEMU snapshot was taken after initial boot
+  and initial configuration, and saved to the disk image.
+
+  We have built three images using this process, which are accessible using the following image refs:
+
+  - ``antidotelabs/vqfx-snap1``
+  - ``antidotelabs/vqfx-snap2``
+  - ``antidotelabs/vqfx-snap3``
+
+  For some reason, while this snapshotting does wonders for boot speed, it doesn't allow us to be able to
+  change the MAC addresses post-boot. This is why we built three, to give you up to three to use in a topology.
+  Note that we're very aware this is not ideal, and we're working hard to get a better vqfx image in place that
+  boots quickly and doesn't have these drawbacks. Contributions welcome!
+
+.. NOTE::
+
+    Previous versions of these docs included a listing for ``vqfx-full`` or ``container-vqfx``. We have removed those for
+    now, as those are still not ready for primetime. In the very near future, we're hoping to have a single vqfx image that
+    is useful across the board, that doesn't have the drawbacks of the snapshotted version.
 
 Sometimes you need to go a bit further than what the current images offer, such as installing a dependency that
 doesn't exist in one of the primary images. For example, the ``utility`` image comes preinstalled with a number
@@ -111,6 +113,25 @@ The only exception to this rule is that the image supports anything configured w
 :ref:`Endpoints <endpoints>` and :ref:`Presentations <toolbox-presentation>` sections in your lesson definition. This is because Antidote
 needs to be able to reach your running container over the network in order to provide access See the
 :ref:`Presentations options documentation <presentation-options>` for more details on how your Endpoint image should support these options.
+
+Images are automatically built using our back-end CI/CD workflows, and require a Makefile to be put in place that supports
+a particular way of being called. For each image directory in a curriculum, the build process runs the following command:
+
+.. CODE::
+
+  make docker
+
+All of the steps needed to build this image must be done automatically using that command. In addition, the ``TARGET_VERSION``
+environment variable must be used by your Makefile to tag your image. This mustd efault to ``latest``, but can be
+overridden by our build process, by calling the Makefile like so:
+
+.. CODE::
+
+  TARGET_VERSION=v0.4.0 make docker
+
+This will result in the image in question being tagged with ``v0.4.0``. See
+`here <https://github.com/nre-learning/nrelabs-curriculum/tree/master/images/utility/Makefile>`_ for an example of a Makefile
+that supports the required options and builds and pushes the docker container automatically.
 
 In addition to the technical requirements for running an image in Antidote, there are few additional procedural requirements
 if you intend this image to be used within NRE Labs. First, for all NRE Labs contributions, the full source of the image (i.e. Dockerfile
