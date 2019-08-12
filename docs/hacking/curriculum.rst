@@ -40,11 +40,6 @@ Next, you'll need minikube. This is by far the easiest way to get a working inst
 running on your laptop. Follow the `installation instructions <https://kubernetes.io/docs/tasks/tools/install-minikube/>`_
 to install, but do not start minikube.  Make sure you install kubectl as well.  Instructions are on the same page.
 
-.. warning::
-
-    The currently supported version of minikube is v0.34.1. Please install this version specifically. You may
-    encounter issues with other versions.
-
 .. note:: 
 
     The ``selfmedicate`` script starts a minikube VM with 8GB of RAM and 4 vCPUs by default. While this isn't a strict
