@@ -101,12 +101,20 @@ connections, this can take some time.
 There are a few things you can try. For instance, ``kubectl describe pods <pod name>``, as used in the previous section,
 can tell you if a given pod is still downloading an image.
 
-We can also use the ``minikube ssh`` command to send commands into the minikube VM and see the results. For instance, to
+We can also use the ``minikube ssh`` or ``vagrant ssh`` command to send commands into the minikube VM and see the results. For instance, to
 check the list of docker images that have been successfully pulled:
+
+If :ref:`Running selfmedicate on Minikube`:
 
 .. code::
 
     minikube ssh docker image list
+
+If :ref:`Running selfmedicate on Vagrant`:
+
+.. code::
+
+    vagrant ssh docker image list
 
 This is the same as running ``docker image list``, but it's done from inside the minikube VM for you. Similarly, if you wanted
 to manually pull an image ahead of time, you could run ``minikube ssh docker image pull <image>``.
