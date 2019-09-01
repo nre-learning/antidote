@@ -34,9 +34,7 @@ Dial by your location
 - Meeting ID: 552 710 574
 - `Find your local number <https://zoom.us/u/ab9tjSeMcz>`_
 
-Please download and import the following iCalendar (.ics) files to your calendar system.
-
-- `Weekly <https://zoom.us/meeting/552710574/ics?icsToken=e364d9d15ff939365786bc173d1f99883eb3c9087f6c75b7d14c73732abb5f56>`_
+`Weekly iCalendar (.ics) can be downloaded here. <https://zoom.us/meeting/552710574/ics?icsToken=e364d9d15ff939365786bc173d1f99883eb3c9087f6c75b7d14c73732abb5f56>`_
 
 .. _community-forums:
 
