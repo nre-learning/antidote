@@ -7,6 +7,8 @@ We're truly interested in building a community around both the Antidote platform
 To that end, we've created several resources for getting involved with the project, each aimed at a different use case
 for community engagement.
 
+.. _weekly-standups:
+
 Weekly Standups
 ^^^^^^^^^^^^^^^
 
