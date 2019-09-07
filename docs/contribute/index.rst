@@ -16,6 +16,7 @@ Before starting your work, please read this section in its entirety, so your wor
    curriculum.rst
    platform.rst
    docs.rst
+   nondev.rst
    faq.rst
 
 .. NOTE::
