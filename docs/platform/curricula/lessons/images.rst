@@ -122,7 +122,7 @@ a particular way of being called. For each image directory in a curriculum, the 
   make docker
 
 All of the steps needed to build this image must be done automatically using that command. In addition, the ``TARGET_VERSION``
-environment variable must be used by your Makefile to tag your image. This mustd efault to ``latest``, but can be
+environment variable must be used by your Makefile to tag your image. This must default to ``latest``, but can be
 overridden by our build process, by calling the Makefile like so:
 
 .. CODE::
