@@ -1,4 +1,4 @@
-.. _contrib-platform-docs:
+.. _contrib-docs:
 
 Contributing to this Documentation
 ==================================
