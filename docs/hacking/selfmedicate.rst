@@ -1,6 +1,11 @@
 About Self-Medicate
 ===================
 
+The preferred method for running self-medicate is through the Vagrant File :ref:`Running selfmedicate on Vagrant`.
+
+An alternative method for Linux users is to run the ``selfmedicate.sh`` script directly. This method
+will be referred to as running "baremetal".
+
 Starting Self-Medicate
 ----------------------
 

@@ -104,11 +104,11 @@ can tell you if a given pod is still downloading an image.
 We can also use the ``minikube ssh`` or ``vagrant ssh`` command to send commands into the minikube VM and see the results. For instance, to
 check the list of docker images that have been successfully pulled:
 
-If :ref:`Running selfmedicate on Minikube`:
+If :ref:`Running selfmedicate baremetal`:
 
 .. code::
 
-    minikube ssh docker image list
+    docker image list
 
 If :ref:`Running selfmedicate on Vagrant`:
 
