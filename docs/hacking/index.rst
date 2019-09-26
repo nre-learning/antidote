@@ -8,5 +8,8 @@ This section is meant for people interested in developing on Antidote.
 
    curriculum.rst
    platform.rst
+   selfmedicate.rst
+   selfmedicate/baremetal.rst
+   selfmedicate/vagrantfile.rst
 
 Please select the topic above for the area you wish to work on.
