@@ -1,39 +1,52 @@
-Running selfmedicate on Vagrant
-===============================
+.. _selfmedicate-vagrant:
 
-Install and Configure Vagrant Prerequisites
--------------------------------------------
+Vagrant Environment for Self-Medicate
+=====================================
 
-The development environment runs within a virtual machine, so you'll need a hypervisor. We recommend
+For maximum compatibility across operating systems, we have packaged a Vagrantfile with :ref:`selfmedicate`, so that
+it can run in a consistent, properly configured virtual machine with all of the dependencies needed.
+
+.. NOTE::
+
+    Running Self-Medicate within this Vagrant environment is the only supported option today. Linux users
+    may wish to run the Self-Medicate script directly, to bypass the first layer of virtualization.
+
+    You're welcome to go this route, of course, but you'll be on your own. You'll also want to make sure
+    Docker, ``kubectl`` and minikube are all installed.
+
+Install and Configure Prerequisites
+-----------------------------------
+
+These instructions will spin up a virtual machine, so first, you'll need a hypervisor. We recommend
 `Virtualbox <https://www.virtualbox.org/wiki/Downloads>`_ as it is widely supported across operating systems
 as well as the automation we'll use to get everything spun up on top of it.
 
-Next, you'll need vagrant. Vagrant uses Boxes to easily install preconfigured VMs. Follow 
+Next, you'll need Vagrant. Vagrant uses Boxes to easily install preconfigured VMs. Follow 
 the `installation instructions <https://www.vagrantup.com/docs/installation/>`_ to install.
 
 .. note:: 
 
-    The vagrantfile starts a VM with 8GB of RAM and 2 vCPUs by default. While this isn't a strict
-    requirement, it's a highly advised minimum. Depending on the lessons you start, it can require quite a bit of system
-    resources, especially if you start multiple lessons in parallel.
+    The Self-Medicate Vagrantfile starts a VM with 8GB of RAM and 2 vCPUs by default. While this isn't a strict
+    requirement, it's a strongly advised minimum.
 
+Once Vagrant is installed, there are a few more things you need to do before you start the VM.
+Vagrant's `vagrant-hostsupdater <https://github.com/cogitatio/vagrant-hostsupdater>`_ plugin is used to
+automatically update the hosts file with the antidote-local URL. Depending on your system settings, you
+may be prompted to allow access to the hosts file.
 
-Vagrantfile Prerequisites
--------------------------
+Vagrant's `vagrant-vbguest <https://github.com/dotless-de/vagrant-vbguest>`_ plugin should be installed if
+using virtualbox. This allows vagrant to mount the
+`NRE Labs Curriculum <http://github.com/nre-learning/nrelabs-curriculum>`_.
 
-Vagrant's `vagrant-hostsupdater <https://github.com/cogitatio/vagrant-hostsupdater>`_ is used to automatically update the hosts
-file with the antidote-local URL.  Depending on your system settings, you may be prompted to allow access to the hosts file.
+You can install these plugins using the following commands:
 
-Vagrant's `vagrant-vbguest <https://github.com/dotless-de/vagrant-vbguest>`_ should be installed if using virtualbox. This allows
-vagrant to mount the `nrelabs-curriculum <http://github.com/nre-learning/nrelabs-curriculum>`_.
+.. CODE::
 
-vagrant plugin install vagrant-hostsupdater
-vagrant plugin install vagrant-vbguest
+    vagrant plugin install vagrant-hostsupdater
+    vagrant plugin install vagrant-vbguest
 
 Starting Vagrant and Selfmedicate
 ---------------------------------
-
-Please see :ref:`About Self-Medicate` for details about the ``selfmedicate.sh`` script.
 
 The vagrantfile calls ``selfmedicate.sh start`` during is provision step.  To initialize antidote, run
 ``vagrant up``
@@ -93,17 +106,8 @@ To turn back on, run:
 Accessing the VM
 ----------------
 
-By using ``vagrant ssh`` we can access the vm to run the troubleshooting commands found on
-:ref:`Troubleshooting Self-Medicate`.
-
 To maintain an open connection to the VM, run:
 
 .. code::
 
     vagrant ssh
-
-Alternatively we can send an individual command such as the syringe lesson reload:
-
-.. code::
-
-    vagrant ssh -c "$HOME/selfmedicate.sh reload"
