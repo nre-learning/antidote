@@ -7,7 +7,7 @@ umbrella of projects.
 .. toctree::
    :maxdepth: 1
 
-   curriculum/curriculum.rst
+   curriculum/index.rst
    platform.rst
 
 Please select the topic above for the area you wish to work on.
