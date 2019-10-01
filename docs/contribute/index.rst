@@ -14,6 +14,7 @@ Before starting your work, please read this section in its entirety, so your wor
    git.rst
    terminology.rst
    curriculum.rst
+   reviewer.rst
    platform.rst
    docs.rst
    nondev.rst

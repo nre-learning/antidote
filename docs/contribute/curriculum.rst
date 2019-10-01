@@ -123,22 +123,8 @@ the PR is merged, the referenced issue(s) will be closed automatically.
 At this point, the next step is for a reviewer to approve or make suggestions for a second round of edits
 for your content. Note that the goal for **each and every review** is not to nitpick or make it difficult to
 contribute to NRE Labs, but rather to ensure the content is reflected in the best light possible. Be patient
-and willing to adapt to feedback.
-
-Here are a few things that reviewers should be on the lookout for when reviewing new contributions to the
-curriculum, either for new or existing lessons. If you're contributing to the curriculum, you should be aware
-of these guidelines, to make the review process much smoother.
-
-- Can a user get through a lesson stage quickly? Are we letting them get to a quick win as soon as practical while still teaching quality content?
-- Does the new or changed lesson adhere to the spirit of Antidote lessons laid out in this document?
-- For new lessons, does the lesson guide (or jupyter notebook if applicable) look nice? Does the author attribute themselves?
-- Is the lesson guide(s) easy to follow?
-- Are any documentation updates also needed?
-- Is the CHANGELOG updated properly?
-- Can we show this in NRE labs? Usage rights?
-- Does this follow the :ref:`Lesson Image Requirements <lessonimages>`?
-- Is the business benefit clear from this lesson? How easy is it for people to link this content with their day-to-day?
-
+and willing to adapt to feedback. It might be useful to take a peek at the :ref:`curriculum review standards <curriculum-reviewers>` as that covers
+everything that a curriculum reviewer will be looking for.
 
 .. _contrib-othermaintainers:
 
