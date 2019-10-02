@@ -46,6 +46,7 @@ Technical
 - Does this follow the :ref:`Lesson Image Requirements <lessonimages>`?
 - Does the lesson appropriately take advantage of Antidote's optional features for content depth (like
   optional objective verification) or diverse presentations?
+- Do the configuration mechanisms in place for the Endpoints properly reverse/forward based on stage?
 
 Logistics
 ---------

@@ -19,8 +19,8 @@ information on progress.
 In this first kickoff, we'll begin gathering ideas for things we want to get done in this release.
 These will be retrieved from various sources:
 
-- First we start with the miniprojects and the v1.0 timeline. Are there any milestones for the
-  upcoming release we need to hit?
+- First we start with the `Antidote v1.0 Roadmap <https://github.com/nre-learning/proposals/blob/master/antidote-v1.0/roadmap.md>`_.
+  Are there any milestones for the upcoming release we need to hit?
 - Second, we comb through the issues for the repos and triage accordingly. Which are ready to
   be worked on, or are most imminent, according to complexity labels?
 
