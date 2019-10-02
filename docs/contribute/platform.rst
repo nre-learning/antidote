@@ -65,3 +65,25 @@ something, but not so challenging that you have to spin your wheels for weeks be
 We've explicitly carved up Github issues in nearly every Antidote project repository just for you. Take a look at the :ref:`Git section
 of these docs <git-lowhanging>` where you'll find a system of labeling issues by complexity, so you can see at-a-glance which issues have
 been identified for the express purpose of getting started with the project.
+
+Going Big
+~~~~~~~~~
+
+For complex features, especially those that span across the various component projects to the Antidote platform,
+you'll be required to create a blueprint in the `proposals <https://github.com/nre-learning/proposals/tree/master/blueprints>`_
+repo. This gives needed structure for the effort you have in mind, and gives others a chance to get involved.
+
+There are no hard rules on when a blueprint is required, but please be prepared to do this if a maintainer asks
+in order to move things forward. There are also no rules on what should be *in* a blueprint, but it should minimally
+answer the following:
+
+- What is the problem you're trying to solve? How will this solve that problem?
+- What components of Antidote (and how) will this need to touch?
+- What is the detailed design of the feature in it's ultimate state?
+- What are the discrete steps (each step being its own PR) we will need to take to accomplish this feature. If
+  separate steps, how will we ensure project stability while the work is in progress?
+
+Blueprints aren't meant to be a super formal, heavy-handed process for everyone to go through before they can
+do anything - ideally they'll only be used for the really complicated ideas as the project moves out of the "alpha"
+stage, and will help keep everyone abreast of the big ideas and how the work will get done - providing space for
+everyone to contribute the way they want to.
