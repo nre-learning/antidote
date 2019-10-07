@@ -1,7 +1,7 @@
 .. _hacking-platform:
 
-Hacking on the Platform
-=======================
+Hacking on the Antidote Platform
+================================
 
 There are two main components to the Antidote platform:
 
