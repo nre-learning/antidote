@@ -4,12 +4,14 @@ Curriculum Review Standards
 ===========================
 
 **ALL** contributions to the NRE Labs curriculum must be done via a Pull Request, and Pull Requests
-can only be merged to ``master`` if the latest commit:
+can only be merged to ``master`` if the latest commit on that Pull Request's branch satisfies all of
+these requirements:
 
 1. Passes all Github CI checks
 2. Has a valid "accepted" review from a curriculum committer that is different from the PR creator.
 
-At this point, the next step is for a reviewer to approve or make suggestions for a second round of edits
+These are meant to be done in order. There is no point in conducting a review until all Github CI checks pass.
+However, once these are passing, the next step is for a reviewer to approve or make suggestions for a second round of edits
 for your content. Note that the goal for **each and every review** is not to nitpick or make it difficult to
 contribute to NRE Labs, but rather to ensure the content is reflected in the best light possible. Be patient
 and willing to adapt to feedback.
@@ -27,29 +29,24 @@ missed any of the below, please open an issue on the curriculum repo.
 - Is the CHANGELOG updated properly?
 - Does ``syrctl validate`` pass?
 
-New Content Guidelines
-----------------------
+Content Quality
+---------------
 
-- Is the business benefit clear from this lesson? How easy is it for people
+Quality is important in NRE Labs. Here are some general things to be on the lookout for.
+
+- Is the relevance to the learner clear from this lesson? How easy is it for people
   to link this content with their day-to-day?
-- Can a user get through a lesson stage quickly? Are we letting them get to a
-  quick win as soon as practical while still teaching quality content?
-- Does the new or changed lesson adhere to the spirit of Antidote lessons
-  laid out in this document?
-- For new lessons, does the lesson guide (or jupyter notebook if
-  applicable) look nice? Does the author attribute themselves?
-- Is the lesson guide(s) easy to follow?
+- Does each lesson stage hit the target length of 5-10 minutes?
+- Are the lesson guides easy to follow? Are they well-written,
+  with appropriate chunking, puncuation/grammar, and visuals?
 
 Technical
 ---------
 
+It's also very important that the curriculum takes maximum advantage of the underlying Antidote
+platform.
+
 - Does this follow the :ref:`Lesson Image Requirements <lessonimages>`?
-- Does the lesson appropriately take advantage of Antidote's optional features for content depth (like
-  optional objective verification) or diverse presentations?
+- Does the lesson appropriately take advantage of Antidote's optional features for content depth, like
+  optional objective verification or diverse presentations? How about lesson diagrams or videos?
 - Do the configuration mechanisms in place for the Endpoints properly reverse/forward based on stage?
-
-Logistics
----------
-
-- Are any documentation updates also needed?
-- Can we show this in NRE labs? Usage rights?
