@@ -48,7 +48,7 @@ You can install these plugins using the following commands:
 Starting Vagrant and Selfmedicate
 ---------------------------------
 
-To test antidote in a virtual machine under Vagrant's control, run:
+To start the Vagrant environment for selfmedicate, run:
 
 .. code::
 
