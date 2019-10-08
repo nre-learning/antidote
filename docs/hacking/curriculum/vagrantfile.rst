@@ -48,8 +48,11 @@ You can install these plugins using the following commands:
 Starting Vagrant and Selfmedicate
 ---------------------------------
 
-The vagrantfile calls ``selfmedicate.sh start`` during is provision step.  To initialize antidote, run
-``vagrant up``
+To test antidote in a virtual machine under Vagrant's control, run:
+
+.. code::
+
+    vagrant up
 
 This will download a `slim Ubuntu 16.04 box <https://app.vagrantup.com/bento/boxes/ubuntu-16.04>`_ then a 
 provisioner will install docker, minikube and kubectl into the vagrant vm. Next, the provisioner will
