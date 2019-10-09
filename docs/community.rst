@@ -15,7 +15,7 @@ Weekly Standups
 We hold weekly standups - open to all - every Tuesday at 8AM Pacific. Attending these are the best way
 to start getting involved with the project, provide feedback, or ask a question.
 
-All standups are recorded and `published to YouTube <https://www.youtube.com/c/NRELabs`_
+All standups are recorded and `published to YouTube <https://www.youtube.com/c/NRELabs>`_
 - usually within a day or two. Standup agendas are usually posted in advance to the
 `Weekly Standup <https://community.networkreliability.engineering/c/weekly-standup>`_ forum topic. Meeting
 minutes will be posted to the same topic after the meeting, with a link to the YouTube video.
@@ -93,7 +93,7 @@ deep into a topic, other weeks we might just casually chat about what's next on 
 Check out our `Twitch channel <https://twitch.tv/nrelabs>`_ to watch live, and interact with us in the chat. Ask questions or
 provide feedback to us live, and we might talk about it on stream!
 
-If you can't join live, check out our `YouTube channel <https://www.youtube.com/c/NRELabs`_, where we post the
+If you can't join live, check out our `YouTube channel <https://www.youtube.com/c/NRELabs>`_, where we post the
 recordings for all our streams, as well as all other video content.
 
 Blog
