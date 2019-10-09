@@ -18,32 +18,36 @@ for instructions on how to contribute your changes back to the project.
 Hacking on Antidote-web
 -----------------------
 
-`Antidote-Web <https://github.com/nre-learning/antidote-web>`_ is Antidote's front-end. It is currently written in vanilla Javascript (no framework)
-as well as the expected HTML/CSS stuff. It's also currently packaged with parts of the Apache guacamole
-project, which is why you'll see it commonly deployed on Tomcat. This is something we're working on breaking
-up a bit later.
+`Antidote-Web <https://github.com/nre-learning/antidote-web>`_ is Antidote's front-end. It is currently
+written in vanilla Javascript (no framework) as well as the expected HTML/CSS stuff. It's also currently
+packaged with parts of the Apache guacamole project, which is why you'll see it commonly deployed on Tomcat.
+This is something we're working on breaking up a bit later.
 
-To preview changes to Antidote-web, the project repo has a Makefile that can be used to build a test Docker container
-that runs your local copy of Antidote-web as a standalone entity, with some mock data. Once in the Antidote-web
-repository, simply run:
+There are three main subcomponents to Antidote-web:
+
+- The actual in-browser application code (javascript)
+- A minimal Java servlet to handle tunnel requests from the front-end Guacamole library
+- A daemon (guacd) that proxies tunnel requests to the actual endpoint Guacamole wants to connect to
+
+For now, the top two are deployed together on top of Tomcat, though in the future we may split this up.
+
+In addition to the components listed above, when doing development on Antidote-web, it's incredibly useful to
+have a working instance of Syringe, since the Syringe API is where Antidote-web gets all its information. It is
+also useful to have actual SSH or HTTP endpoints to connect to in the web UI, so you can see how those things work.
+
+In the Antidote-web repo, a Makefile is provided which stands up a bare-minimum set of containers to allow you
+to build and run the Antidote-web application from your own local source code. Clone and ``cd`` to the
+`Antidote-Web <https://github.com/nre-learning/antidote-web>`_ repository, and run:
 
 .. CODE::
 
-    make test
+    make hack
 
-This may take a few minutes the first time, but eventually you'll have a few containers running in Docker:
+This may take a few minutes the first time. Once you see a log message on the console that says something like
+``org.apache.catalina.startup.Catalina.start Server startup in...``, you will be able to access the Web UI at
+`http://localhost:8080 <http://localhost:8080>`_.
 
-.. CODE::
-
-    ~$ docker ps                                                                                                                                                                                            [22:15:00]
-
-    CONTAINER ID        IMAGE                       COMMAND                  CREATED             STATUS              PORTS                    NAMES
-    b13bf8a3aa63        antidotelabs/antidote-web   "/opt/guacamole/bin/…"   2 seconds ago       Up 1 second         0.0.0.0:8080->8080/tcp   aweb
-    c17a8dce40d2        guacamole/guacd             "/bin/sh -c '/usr/lo…"   2 seconds ago       Up 1 second         0.0.0.0:4822->4822/tcp   guacd
-    6e825b629bc6        antidotelabs/utility        "/usr/sbin/sshd -D"      3 seconds ago       Up 2 seconds        0.0.0.0:2222->22/tcp     linux1
-
-You'll be able to access the Web UI at `http://localhost:8080 <http://localhost:8080>`_ now. Re-run ``make test``
-every time you wish to rebuild the environment to incorporate changes.
+To rebuild the environment, break out with ``Ctrl+c``, and re-run ``make hack``.
 
 .. _hacking-syringe:
 
