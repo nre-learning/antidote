@@ -36,8 +36,13 @@ have a working instance of Syringe, since the Syringe API is where Antidote-web 
 also useful to have actual SSH or HTTP endpoints to connect to in the web UI, so you can see how those things work.
 
 In the Antidote-web repo, a Makefile is provided which stands up a bare-minimum set of containers to allow you
-to build and run the Antidote-web application from your own local source code. Clone and ``cd`` to the
-`Antidote-Web <https://github.com/nre-learning/antidote-web>`_ repository, and run:
+to build and run the Antidote-web application from your own local source code. First, ensure the following is
+installed properly on your machine, as the Makefile depends on it:
+
+- Docker
+- Docker Compose
+
+Next, clone and ``cd`` to the `Antidote-Web <https://github.com/nre-learning/antidote-web>`_ repository, and run:
 
 .. CODE::
 
