@@ -10,7 +10,7 @@ At a high level, the two primary areas of focus for the Antidote platform are:
 
 - `antidote-web <https://github.com/nre-learning/antidote-web>`_ - this is the web front-end for the platform. If you lean more
   towards front-end development, such as HTML, CSS, and Javascript, this repository is a good place to start.
-- `syringe <https://github.com/nre-learning/antidote-web>`_ - this is the "brains" of Antidote - the back-end orchestrator that
+- `syringe <https://github.com/nre-learning/syringe>`_ - this is the "brains" of Antidote - the back-end orchestrator that
   is responsible for making everything work behind the scenes. If you've primarily worked with systems languages like Python or Go,
 - `antidote-ops <https://github.com/nre-learning/antidote-ops>`_ - this is where we do all the automation to make the project itself
   work. Here, we manage scripts and playbooks for doing release automation - that is, the workflows for actually releasing a version of
