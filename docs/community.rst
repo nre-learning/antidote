@@ -87,11 +87,8 @@ Follow `@NRELabs <https://twitter.com/nrelabs>`_ on twitter for periodic updates
 
 Weekly Livestreams and Other Videos
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-We run a weekly livestream on Twitch at 10AM Pacific Time. Right now this is fairly informal - some weeks we might dive
+`We run a livestream <https://networkreliability.engineering/live/>`_ on every other Thursday at 10AM Pacific Time. Right now this is fairly informal - some weeks we might dive
 deep into a topic, other weeks we might just casually chat about what's next on the project plan.
-
-Check out our `Twitch channel <https://twitch.tv/nrelabs>`_ to watch live, and interact with us in the chat. Ask questions or
-provide feedback to us live, and we might talk about it on stream!
 
 If you can't join live, check out our `YouTube channel <https://www.youtube.com/c/NRELabs>`_, where we post the
 recordings for all our streams, as well as all other video content.
