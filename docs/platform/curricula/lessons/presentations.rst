@@ -45,7 +45,7 @@ plural form, and provided as a YAML list. This is because you can have multiple 
       port: 22
       type: ssh
     - name: web
-      port: 22
+      port: 80
       type: http
 
 These will all be shown as individual tabs in the Antidote web front-end, and they will be disambiguated via their
